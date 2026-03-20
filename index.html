@@ -915,14 +915,20 @@
     const initials = p.name.split(' ').map(w=>w[0]).join('');
     document.getElementById('navLogo').innerHTML = `${initials}<span class="text-teal-400">.</span>`;
 
-    const emailHref = 'mailto:' + p.email;
-    document.getElementById('heroEmail').href         = emailHref;
+    const gmailHref = 'https://mail.google.com/mail/?view=cm&to=' + encodeURIComponent(p.email);
+    document.getElementById('heroEmail').href         = gmailHref;
+    document.getElementById('heroEmail').target       = '_blank';
+    document.getElementById('heroEmail').rel          = 'noopener';
     document.getElementById('heroLinkedin').href      = p.linkedin || '#';
     document.getElementById('heroGithub').href        = p.github   || '#';
-    document.getElementById('contactEmail').href      = emailHref;
+    document.getElementById('contactEmail').href      = gmailHref;
+    document.getElementById('contactEmail').target    = '_blank';
+    document.getElementById('contactEmail').rel       = 'noopener';
     document.getElementById('contactLinkedin').href   = p.linkedin || '#';
     document.getElementById('contactGithub').href     = p.github   || '#';
-    document.getElementById('photoEmailLink').href    = emailHref;
+    document.getElementById('photoEmailLink').href    = gmailHref;
+    document.getElementById('photoEmailLink').target  = '_blank';
+    document.getElementById('photoEmailLink').rel     = 'noopener';
     document.getElementById('photoLinkedinLink').href = p.linkedin || '#';
     document.getElementById('photoGithubLink').href   = p.github   || '#';
 
