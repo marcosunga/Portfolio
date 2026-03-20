@@ -65,22 +65,11 @@
       position: relative;
     }
     .timeline-dot::before {
-      content:''; position:absolute; left:-29px; top:4px;
+      content:''; position:absolute; left:-33px; top:7px;
       width:10px; height:10px; border-radius:50%;
       background: linear-gradient(135deg,#38bdf8,#2dd4bf);
       box-shadow: 0 0 10px rgba(56,189,248,0.5);
-      flex-shrink: 0;
-    }
-
-    /* Experience timeline dot — uses orange/amber accent */
-    .exp-timeline-dot {
-      position: relative;
-    }
-    .exp-timeline-dot::before {
-      content:''; position:absolute; left:-29px; top:4px;
-      width:10px; height:10px; border-radius:50%;
-      background: linear-gradient(135deg,#f59e0b,#f97316);
-      box-shadow: 0 0 10px rgba(245,158,11,0.5);
+      z-index: 1;
     }
 
     body::before {
@@ -115,39 +104,45 @@
        ══════════════════════════════════════ */
     html:not(.dark) body { background-color: #f1f5f9; color: #0f172a; }
 
+    /* Generic text role overrides */
     html:not(.dark) .lm-h    { color: #0f172a !important; }
     html:not(.dark) .lm-body { color: #334155 !important; }
     html:not(.dark) .lm-sub  { color: #64748b !important; }
     html:not(.dark) .lm-faint{ color: #94a3b8 !important; }
 
+    /* Cards */
     html:not(.dark) .lm-card { background-color: #ffffff !important; border-color: #e2e8f0 !important; }
     html:not(.dark) .lm-card:hover { border-color: #94a3b8 !important; }
 
+    /* Nav */
     html:not(.dark) .lm-navlink { color: #475569 !important; }
     html:not(.dark) .lm-navlink:hover { color: #0f172a !important; }
     html:not(.dark) .lm-themebtn { background-color: #f1f5f9 !important; border-color: #cbd5e1 !important; }
 
+    /* Hero outline button */
     html:not(.dark) .lm-outline { border-color: #cbd5e1 !important; color: #334155 !important; }
     html:not(.dark) .lm-outline:hover { border-color: #94a3b8 !important; color: #0f172a !important; }
 
+    /* Tags / pills */
     html:not(.dark) .lm-pill { background-color: #f8fafc !important; border-color: #cbd5e1 !important; color: #475569 !important; }
     html:not(.dark) .lm-tech-badge { background-color: #f1f5f9 !important; border-color: #e2e8f0 !important; color: #475569 !important; }
 
+    /* Stat dividers */
     html:not(.dark) .lm-divider { background-color: #cbd5e1 !important; }
 
+    /* Floating hero badge */
     html:not(.dark) .lm-floatcard { background-color: #ffffff !important; border-color: #e2e8f0 !important; }
 
+    /* Education / cert cards */
     html:not(.dark) .lm-certcard { background-color: #ffffff !important; border-color: #e2e8f0 !important; }
     html:not(.dark) .lm-certcard:hover { border-color: #94a3b8 !important; }
 
+    /* Image placeholder */
     html:not(.dark) .lm-imgbox { background-color: #f1f5f9 !important; border-color: #e2e8f0 !important; }
 
+    /* Footer */
     html:not(.dark) footer { border-color: #e2e8f0 !important; }
     html:not(.dark) .lm-footertext { color: #94a3b8 !important; }
-
-    /* Experience card light mode */
-    html:not(.dark) .lm-expcard { background-color: #ffffff !important; border-color: #e2e8f0 !important; }
-    html:not(.dark) .lm-expcard:hover { border-color: #94a3b8 !important; }
 
     /* ══════════════════════════════════════
        ADMIN PANEL STYLES
@@ -213,6 +208,7 @@
     .photo-ring-inner img { width:100%; height:100%; object-fit:cover; display:block; }
     .photo-placeholder-icon { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
 
+    /* photo status badge */
     .photo-status {
       position:absolute; bottom:8px; right:8px; z-index:2;
       background:#0f172a; border:1px solid #334155;
@@ -223,6 +219,7 @@
     }
     html:not(.dark) .photo-status { background:#fff; border-color:#e2e8f0; }
 
+    /* Admin gear btn */
     .admin-gear-btn {
       width:2.25rem; height:2.25rem; border-radius:0.5rem;
       background:#1e293b; border:1px solid #334155;
@@ -234,6 +231,7 @@
     html:not(.dark) .admin-gear-btn { background:#f1f5f9; border-color:#cbd5e1; color:#94a3b8; }
     html:not(.dark) .admin-gear-btn:hover { background:#e2e8f0; color:#0ea5e9; }
 
+    /* Social icon links */
     .social-link {
       display:inline-flex; align-items:center; gap:6px;
       padding:7px 14px; border-radius:999px;
@@ -244,48 +242,18 @@
     .social-link:hover { border-color:#38bdf8; color:#38bdf8; background:rgba(56,189,248,0.06); }
     html:not(.dark) .social-link { border-color:#cbd5e1; color:#64748b; }
     html:not(.dark) .social-link:hover { border-color:#0ea5e9; color:#0ea5e9; background:rgba(14,165,233,0.06); }
-
-    /* ══ EXPERIENCE CARD ══ */
-    .exp-card {
-      position: relative;
-      background: #0f172a;
-      border: 1px solid #1e293b;
-      border-radius: 1rem;
-      padding: 1.25rem 1.5rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .exp-card:hover {
-      border-color: rgba(245,158,11,0.3);
-      box-shadow: 0 8px 32px -8px rgba(245,158,11,0.1);
-    }
-    html:not(.dark) .exp-card {
-      background: #ffffff;
-      border-color: #e2e8f0;
-    }
-    html:not(.dark) .exp-card:hover {
-      border-color: #94a3b8;
-    }
-    .exp-type-badge {
-      display: inline-flex; align-items: center;
-      padding: 2px 10px; border-radius: 999px;
-      font-size: 0.65rem; font-family: 'DM Mono', monospace; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.06em;
-    }
-    .exp-type-fulltime  { background: rgba(56,189,248,0.1);  border: 1px solid rgba(56,189,248,0.25);  color: #38bdf8; }
-    .exp-type-parttime  { background: rgba(45,212,191,0.1);  border: 1px solid rgba(45,212,191,0.25);  color: #2dd4bf; }
-    .exp-type-contract  { background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.25); color: #a78bfa; }
-    .exp-type-freelance { background: rgba(251,146,60,0.1);  border: 1px solid rgba(251,146,60,0.25);  color: #fb923c; }
-    .exp-type-intern    { background: rgba(251,113,133,0.1); border: 1px solid rgba(251,113,133,0.25); color: #fb7185; }
   </style>
 </head>
 
+<!-- ADMIN: Press Ctrl+Shift+A to open the admin panel -->
 <body class="bg-slate-950 text-slate-100 min-h-screen overflow-x-hidden relative z-10">
 
   <!-- ══ NAVBAR ══ -->
   <nav class="glass fixed top-0 left-0 right-0 z-50">
     <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#hero" id="navLogo" class="font-mono text-sm tracking-widest text-sky-400 font-medium lm-h">AC<span class="text-teal-400">.</span></a>
-      <div class="flex items-center gap-6 text-sm font-medium">
+      <!-- Desktop nav links -->
+      <div class="flex items-center gap-8 text-sm font-medium">
         <a href="#projects"   class="nav-link lm-navlink text-slate-400 hover:text-slate-100 transition-colors">Projects</a>
         <a href="#experience" class="nav-link lm-navlink text-slate-400 hover:text-slate-100 transition-colors">Experience</a>
         <a href="#education"  class="nav-link lm-navlink text-slate-400 hover:text-slate-100 transition-colors">Education</a>
@@ -293,26 +261,28 @@
         <a href="#contact"    class="nav-link lm-navlink text-slate-400 hover:text-slate-100 transition-colors">Contact</a>
       </div>
       <div class="flex items-center gap-2.5">
+        <!-- Theme toggle -->
         <button onclick="toggleTheme()" class="lm-themebtn w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center transition-all border border-slate-700 hover:border-slate-500 group">
           <svg id="moonIcon" class="w-4 h-4 text-slate-400 group-hover:text-sky-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
           <svg id="sunIcon" class="w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
         </button>
+        <!-- Desktop: Hire Me -->
         <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r from-sky-500 to-teal-500 text-white hover:from-sky-400 hover:to-teal-400 transition-all shadow-lg shadow-sky-500/20">
           Hire Me <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </div>
     </div>
   </nav>
-
   <!-- ══ HERO ══ -->
   <section id="hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
     <div class="hero-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 absolute"></div>
     <div class="absolute inset-0 opacity-[0.03]" style="background-image:linear-gradient(rgba(148,163,184,1) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,1) 1px,transparent 1px);background-size:60px 60px;"></div>
 
     <div class="max-w-5xl mx-auto px-6 py-24 relative z-10 w-full">
+
       <div class="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16">
 
-        <!-- LEFT: text content -->
+        <!-- ── LEFT: text content ── -->
         <div class="flex-1 min-w-0">
           <div class="animate-fade-up" style="animation-delay:.1s;opacity:0;">
             <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono font-medium text-sky-400 bg-sky-400/10 border border-sky-400/20 rounded-full mb-8">
@@ -331,6 +301,7 @@
             Full-stack engineer &amp; UI architect. I turn complex ideas into elegant, performant interfaces that users love and businesses trust.
           </p>
 
+          <!-- CTA buttons -->
           <div class="flex flex-wrap gap-4 mb-6 md:mb-8 animate-fade-up" style="animation-delay:.45s;opacity:0;">
             <a href="#projects" class="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-teal-500 text-white font-semibold text-sm hover:from-sky-400 hover:to-teal-400 transition-all shadow-xl shadow-sky-500/20 hover:-translate-y-0.5">
               View Work <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -338,8 +309,9 @@
             <a href="#contact" class="lm-outline inline-flex items-center gap-2.5 px-6 py-3 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-slate-100 font-semibold text-sm transition-all hover:-translate-y-0.5">Let's Talk</a>
           </div>
 
+          <!-- Social links row -->
           <div class="flex flex-wrap gap-2 animate-fade-up" style="animation-delay:.52s;opacity:0;">
-            <a id="heroEmail" href="#" class="social-link">
+            <a id="heroEmail" href="/cdn-cgi/l/email-protection#157479706d55706d74786579703b767a78" class="social-link">
               <svg style="width:.9rem;height:.9rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               Email
             </a>
@@ -353,6 +325,7 @@
             </a>
           </div>
 
+          <!-- Stats -->
           <div class="flex flex-wrap gap-8 mt-8 md:mt-10 animate-fade-up" style="animation-delay:.6s;opacity:0;">
             <div><div id="statYears"    class="text-3xl font-display font-bold gradient-text">5+</div><div class="lm-sub text-xs text-slate-500 mt-1 font-medium tracking-wide">Years Experience</div></div>
             <div class="lm-divider w-px bg-slate-800"></div>
@@ -362,7 +335,7 @@
           </div>
         </div>
 
-        <!-- RIGHT: photo panel -->
+        <!-- ── RIGHT: photo panel ── -->
         <div class="flex flex-col items-center gap-4 md:gap-5 animate-fade-in lg:pt-10 flex-shrink-0" style="animation-delay:.3s;opacity:0;">
           <div class="photo-ring float" style="width:170px;height:170px;">
             <div class="photo-ring-inner" id="photoRingInner">
@@ -376,11 +349,12 @@
               <span id="photoStatusText">Open to work</span>
             </div>
           </div>
+          <!-- Name card below photo -->
           <div class="photo-namecard lm-floatcard bg-slate-900 border border-slate-700/60 rounded-2xl px-4 py-3.5 text-center shadow-xl shadow-black/30" style="width:185px;">
-            <p id="photoName" class="lm-h text-sm font-semibold text-slate-100 truncate">Alex Chen</p>
-            <p id="photoRole" class="lm-sub text-xs text-slate-500 mt-0.5 leading-snug">Full-Stack Engineer</p>
+            <p id="photoName" class="lm-h text-sm font-semibold text-slate-100 truncate">Marco R. Sunga</p>
+            <p id="photoRole" class="lm-sub text-xs text-slate-500 mt-0.5 leading-snug">Student</p>
             <div class="flex justify-center gap-3 mt-3">
-              <a id="photoEmailLink" href="#" class="text-slate-500 hover:text-sky-400 transition-colors" title="Email">
+              <a id="photoEmailLink" href="/cdn-cgi/l/email-protection#76171a130e36130e171b061a135815191b" class="text-slate-500 hover:text-sky-400 transition-colors" title="Email">
                 <svg style="width:1rem;height:1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               </a>
               <a id="photoLinkedinLink" href="#" target="_blank" rel="noopener" class="text-slate-500 hover:text-sky-400 transition-colors" title="LinkedIn">
@@ -404,7 +378,7 @@
         <h2 class="lm-h text-4xl md:text-5xl text-slate-100 mt-2">Projects</h2>
         <div class="w-12 h-0.5 bg-gradient-to-r from-sky-500 to-teal-500 mt-4"></div>
       </div>
-      <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
+      <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-5"><!-- rendered by JS --></div>
     </div>
   </section>
 
@@ -412,15 +386,11 @@
   <section id="experience" class="py-24 relative">
     <div class="max-w-5xl mx-auto px-6">
       <div class="reveal mb-14">
-        <span class="font-mono text-xs text-amber-400 tracking-widest uppercase">Work History</span>
+        <span class="font-mono text-xs text-sky-400 tracking-widest uppercase">Work History</span>
         <h2 class="lm-h text-4xl md:text-5xl text-slate-100 mt-2">Experience</h2>
-        <div class="w-12 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 mt-4"></div>
+        <div class="w-12 h-0.5 bg-gradient-to-r from-sky-500 to-teal-500 mt-4"></div>
       </div>
-      <div class="relative pl-8">
-        <!-- Vertical timeline line -->
-        <div class="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-amber-500/60 via-orange-500/30 to-transparent"></div>
-        <div id="experienceList" class="space-y-6"></div>
-      </div>
+      <div id="experienceList" class="space-y-5"><!-- rendered by JS --></div>
     </div>
   </section>
 
@@ -435,9 +405,9 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
         <div class="reveal">
           <h3 class="lm-faint text-xs font-mono text-slate-500 tracking-widest uppercase mb-8">Education</h3>
-          <div class="relative pl-8">
+          <div class="relative">
             <div class="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-sky-500/60 via-teal-500/30 to-transparent"></div>
-            <div id="educationList" class="space-y-10"></div>
+            <div id="educationList" class="space-y-4 pl-8"></div>
           </div>
         </div>
         <div id="skills" class="reveal">
@@ -462,7 +432,7 @@
         <h2 class="lm-h text-4xl md:text-5xl text-slate-100 mt-3 mb-5">Get in Touch</h2>
         <p class="lm-body text-slate-400 leading-relaxed mb-10">Have a project in mind? I'm available for freelance work, full-time positions, and consulting engagements.</p>
         <div class="flex flex-wrap gap-4 justify-center">
-          <a id="contactEmail" href="#" class="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-teal-500 text-white font-semibold text-sm hover:from-sky-400 hover:to-teal-400 transition-all shadow-xl shadow-sky-500/20 hover:-translate-y-0.5">
+          <a id="contactEmail" href="/cdn-cgi/l/email-protection#10717c7568507568717d607c753e737f7d" class="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-teal-500 text-white font-semibold text-sm hover:from-sky-400 hover:to-teal-400 transition-all shadow-xl shadow-sky-500/20 hover:-translate-y-0.5">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             Send an Email
           </a>
@@ -482,33 +452,47 @@
   <!-- ══ FOOTER ══ -->
   <footer class="border-t border-slate-800/60 py-8">
     <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="lm-footertext text-xs text-slate-600 font-mono">© 2025 <span id="footerName">Alex Chen</span>. Built with care.</p>
-      <p class="lm-footertext text-xs text-slate-700 font-mono">Design + Engineering · Available for hire</p>
+      <p class="lm-footertext text-xs text-slate-600 font-mono">© 2025 <span id="footerName">Marco R. Sunga</span>. ArcRomero.</p>
+      <p class="lm-footertext text-xs text-slate-700 font-mono">Data Scientist + Data Analyst · Ready to work</p>
     </div>
   </footer>
 
   <!-- ══ PASSWORD GATE ══ -->
+  <!-- This modal appears before the admin panel. Visitors see nothing — no button, no hint. -->
+  <!-- TO CHANGE YOUR PASSWORD: find ADMIN_PASSWORD below in the <script> and update it. -->
   <div id="pwGate" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);align-items:center;justify-content:center;" onclick="closePwGateIfOutside(event)">
     <div style="background:#0f172a;border:1px solid #1e293b;border-radius:1.25rem;width:min(380px,90vw);padding:2rem;box-shadow:0 40px 100px rgba(0,0,0,0.7);font-family:'Outfit',sans-serif;">
+
+      <!-- Lock icon -->
       <div style="width:3rem;height:3rem;border-radius:0.875rem;background:linear-gradient(135deg,#0ea5e9,#0d9488);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
         <svg style="width:1.4rem;height:1.4rem;color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
         </svg>
       </div>
+
       <h2 style="font-family:'DM Serif Display',serif;color:#e2e8f0;font-size:1.2rem;text-align:center;margin:0 0 0.375rem;">Admin Access</h2>
       <p style="font-size:0.75rem;color:#64748b;text-align:center;font-family:'DM Mono',monospace;margin:0 0 1.5rem;">Enter your password to continue</p>
+
       <div style="position:relative;margin-bottom:0.875rem;">
         <input id="pwInput" type="password" placeholder="Password" autocomplete="current-password"
           style="width:100%;background:#1e293b;border:1px solid #334155;border-radius:0.625rem;padding:0.625rem 2.75rem 0.625rem 0.875rem;font-size:0.875rem;color:#e2e8f0;outline:none;transition:border-color 0.2s;box-sizing:border-box;font-family:'Outfit',sans-serif;"
           onfocus="this.style.borderColor='#38bdf8'" onblur="this.style.borderColor='#334155'"
           onkeydown="if(event.key==='Enter')checkPassword()">
-        <button onclick="togglePwVisibility()" style="position:absolute;right:0.625rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#475569;padding:0.25rem;">
+        <!-- Show/hide toggle -->
+        <button onclick="togglePwVisibility()" style="position:absolute;right:0.625rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#475569;padding:0.25rem;" title="Show/hide">
           <svg id="pwEyeIcon" style="width:1rem;height:1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
         </button>
       </div>
+
+      <!-- Error message -->
       <p id="pwError" style="font-size:0.72rem;color:#f87171;font-family:'DM Mono',monospace;margin:0 0 0.875rem;display:none;text-align:center;">Incorrect password. Try again.</p>
-      <button onclick="checkPassword()" style="width:100%;background:linear-gradient(135deg,#0ea5e9,#0d9488);color:#fff;border:none;border-radius:0.625rem;padding:0.65rem;font-size:0.875rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity 0.2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Unlock</button>
-      <button onclick="closePwGate()" style="width:100%;background:none;color:#475569;border:none;padding:0.5rem;font-size:0.78rem;cursor:pointer;margin-top:0.5rem;font-family:'Outfit',sans-serif;">Cancel</button>
+
+      <button onclick="checkPassword()" style="width:100%;background:linear-gradient(135deg,#0ea5e9,#0d9488);color:#fff;border:none;border-radius:0.625rem;padding:0.65rem;font-size:0.875rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:opacity 0.2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        Unlock
+      </button>
+      <button onclick="closePwGate()" style="width:100%;background:none;color:#475569;border:none;padding:0.5rem;font-size:0.78rem;cursor:pointer;margin-top:0.5rem;font-family:'Outfit',sans-serif;">
+        Cancel
+      </button>
     </div>
   </div>
 
@@ -531,7 +515,7 @@
       </div>
 
       <!-- Tabs -->
-      <div style="display:flex;gap:0.375rem;padding:1rem 1.75rem 0;border-bottom:1px solid #1e293b;flex-wrap:wrap;">
+      <div style="display:flex;gap:0.375rem;padding:1rem 1.75rem 0;border-bottom:1px solid #1e293b;">
         <button class="admin-tab active" onclick="switchTab('profile')"    id="tab-profile">Profile</button>
         <button class="admin-tab"        onclick="switchTab('projects')"   id="tab-projects">Projects</button>
         <button class="admin-tab"        onclick="switchTab('experience')" id="tab-experience">Experience</button>
@@ -616,22 +600,26 @@
         <div id="pane-experience" style="display:none;">
           <p class="admin-section-title">Add Work Experience</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.875rem;">
-            <div style="grid-column:1/-1"><label class="admin-label">Job Title</label><input class="admin-input" id="ex_title" placeholder="Senior Frontend Engineer"></div>
+            <div style="grid-column:1/-1"><label class="admin-label">Job Title</label><input class="admin-input" id="ex_title" placeholder="Senior Data Analyst"></div>
             <div><label class="admin-label">Company</label><input class="admin-input" id="ex_company" placeholder="Acme Corp"></div>
-            <div><label class="admin-label">Location</label><input class="admin-input" id="ex_location" placeholder="Remote · San Francisco, CA"></div>
+            <div><label class="admin-label">Location</label><input class="admin-input" id="ex_location" placeholder="Remote · Manila, PH"></div>
             <div><label class="admin-label">Start Date</label><input class="admin-input" id="ex_start" placeholder="Jan 2022"></div>
             <div><label class="admin-label">End Date</label><input class="admin-input" id="ex_end" placeholder="Present"></div>
             <div><label class="admin-label">Employment Type</label>
               <select class="admin-input" id="ex_type">
-                <option value="fulltime">Full-time</option>
-                <option value="parttime">Part-time</option>
-                <option value="contract">Contract</option>
-                <option value="freelance">Freelance</option>
-                <option value="intern">Internship</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Contract">Contract</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Internship">Internship</option>
               </select>
             </div>
+            <div style="display:flex;align-items:center;gap:0.5rem;padding-top:1.25rem;">
+              <input type="checkbox" id="ex_current" style="accent-color:#38bdf8;width:1rem;height:1rem;" onchange="document.getElementById('ex_end').disabled=this.checked;if(this.checked)document.getElementById('ex_end').value='Present';">
+              <label style="font-size:0.8rem;color:#94a3b8;cursor:pointer;">Currently working here</label>
+            </div>
             <div style="grid-column:1/-1"><label class="admin-label">Description / Achievements (one per line)</label><textarea class="admin-input" id="ex_desc" rows="4" style="resize:vertical;" placeholder="Led redesign of core dashboard, cutting load time by 40%&#10;Mentored 3 junior developers&#10;Integrated Stripe payment flow"></textarea></div>
-            <div><label class="admin-label">Tech / Tools Used (comma separated)</label><input class="admin-input" id="ex_tech" placeholder="React, TypeScript, GraphQL"></div>
+            <div style="grid-column:1/-1"><label class="admin-label">Tech / Tools Used (comma separated)</label><input class="admin-input" id="ex_tech" placeholder="Python, TensorFlow, SQL, Tableau"></div>
           </div>
           <div style="margin-top:1rem;"><button class="admin-btn-primary" onclick="addExperience()">+ Add Experience</button></div>
           <p class="admin-section-title" style="margin-top:1.75rem;">Current Entries (<span id="experienceCount">0</span>)</p>
@@ -683,66 +671,136 @@
     </div>
   </div>
 
-  <!-- Toast -->
-  <div id="saveToast" class="admin-save-toast">✓ Changes saved</div>
+  <!-- ══ LOADING OVERLAY ══ -->
+  <div id="loadingOverlay" style="display:none;position:fixed;inset:0;z-index:400;background:rgba(2,6,23,0.92);backdrop-filter:blur(8px);align-items:center;justify-content:center;flex-direction:column;gap:1rem;">
+    <div style="width:2.5rem;height:2.5rem;border:3px solid #1e293b;border-top-color:#38bdf8;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+    <p style="font-family:'DM Mono',monospace;font-size:0.75rem;color:#64748b;letter-spacing:0.08em;">Loading portfolio data...</p>
+  </div>
+  <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 
-  <script>
+  <!-- Toast notification -->
+  <div id="saveToast" class="admin-save-toast">✓ Saved to cloud</div>
+
+  <!-- ══════════════════════════════════════════════
+       JAVASCRIPT
+       ══════════════════════════════════════════════ -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+  /* ══════════════════════════════════════════════
+     SUPABASE CONFIG
+     ══════════════════════════════════════════════ */
+  const SB_URL  = 'https://trigijuoouoznhgwziiz.supabase.co';
+  const SB_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyaWdpanVvb3Vvem5oZ3d6aWl6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTEwNzQsImV4cCI6MjA4OTU4NzA3NH0.qpmf6GCd3xoyxGp7v5TDnVZKoMUfoqf7VfAsBzlNB4Q';
+  const SB_HDRS = { 'Content-Type':'application/json', 'apikey':SB_KEY, 'Authorization':'Bearer '+SB_KEY };
+
+  async function dbGet(key) {
+    try {
+      const r = await fetch(`${SB_URL}/rest/v1/portfolio_data?key=eq.${key}&select=value`, { headers: SB_HDRS });
+      const d = await r.json();
+      return d.length ? JSON.parse(d[0].value) : null;
+    } catch(e) { return null; }
+  }
+
+  async function dbSet(key, value) {
+    try {
+      await fetch(`${SB_URL}/rest/v1/portfolio_data`, {
+        method: 'POST',
+        headers: { ...SB_HDRS, 'Prefer': 'resolution=merge-duplicates' },
+        body: JSON.stringify({ key, value: JSON.stringify(value), updated_at: new Date().toISOString() })
+      });
+    } catch(e) { console.error('Save failed:', e); }
+  }
+
   /* ── DATA DEFAULTS ──────────────────────── */
   const DEFAULTS = {
     profile: {
-      name:'Alex Chen', role:'Full-Stack Engineer & UI Architect',
-      email:'alex@example.com', status:'Available for new projects',
-      bio:'Full-stack engineer & UI architect. I turn complex ideas into elegant, performant interfaces that users love and businesses trust.',
-      hero1:'Building', hero2:'digital craft', hero3:'with purpose.',
-      statYears:'5+', statProjects:'40+', statClients:'12+',
-      linkedin:'#', github:'#'
+      name:'Marco R. Sunga', role:'Data Analyst & ML Engineer',
+      email:'marco@example.com', status:'Available for new projects',
+      bio:'Data analyst and machine learning engineer. I transform raw data into actionable insights and build intelligent systems that solve real-world problems.',
+      hero1:'Turning data', hero2:'into insight', hero3:'with purpose.',
+      statYears:'3+', statProjects:'20+', statClients:'10+',
+      linkedin:'#', github:'https://github.com/marcosunga'
     },
     projects:[
-      {id:1,title:'FlowDesk — SaaS Dashboard',stack:'React · Node.js · Postgres',badge:'Featured',desc:'A real-time analytics platform for B2B teams. Drag-and-drop report builder, multi-tenant auth, and sub-100ms query engine. Served 3,000+ daily active users at peak.',demo:'#',github:'#',color:'sky',featured:true},
-      {id:2,title:'CodeReview AI',stack:'Next.js · OpenAI · Supabase',badge:'Open Source',desc:'Automated PR review assistant that flags code smells, suggests improvements, and estimates tech debt using LLMs.',demo:'#',github:'#',color:'violet',featured:false},
-      {id:3,title:'EcoTrack Mobile',stack:'React Native · FastAPI',badge:'iOS + Android',desc:'Carbon footprint calculator for everyday purchases. Integrates bank APIs to auto-categorize spending and estimate emissions.',demo:'#',github:'#',color:'teal',featured:false},
-      {id:4,title:'Heatmap Studio',stack:'SvelteKit · D3.js',badge:'Data Viz',desc:'Visual data storytelling tool. Build interactive heat maps and geospatial charts from CSV data — no code needed.',demo:'#',github:'#',color:'orange',featured:false},
-    ],
-    experience:[
-      {id:1,title:'Senior Frontend Engineer',company:'Acme Corp',location:'Remote · San Francisco, CA',start:'Jan 2022',end:'Present',type:'fulltime',desc:'Led redesign of core analytics dashboard, reducing load time by 40%\nMentored 3 junior engineers and conducted weekly code reviews\nBuilt reusable component library adopted across 6 product teams\nIntegrated Stripe payment flow handling $2M+ monthly transactions',tech:'React, TypeScript, GraphQL, Tailwind CSS'},
-      {id:2,title:'Full-Stack Developer',company:'Bright Studio',location:'New York, NY',start:'Mar 2020',end:'Dec 2021',type:'contract',desc:'Delivered 12+ client projects on time and under budget\nBuilt RESTful APIs with Node.js serving 50k+ daily requests\nImplemented CI/CD pipelines cutting deployment time by 60%',tech:'Node.js, Vue.js, PostgreSQL, Docker'},
-      {id:3,title:'UI Engineer Intern',company:'PixelForge',location:'Austin, TX',start:'Jun 2019',end:'Feb 2020',type:'intern',desc:'Contributed to design system used across 3 flagship products\nImproved accessibility scores from 72 to 96 across all pages',tech:'HTML, CSS, JavaScript, Figma'},
+      {id:1,title:'Sample ML Project',stack:'Python · TensorFlow · Pandas',badge:'Featured',desc:'A machine learning pipeline that processes and analyzes data to generate predictive insights. Replace this with your real project.',demo:'#',github:'#',color:'sky',featured:true},
     ],
     education:[
-      {id:1,degree:'B.Sc. Computer Science',institution:'University of Technology',year:'2016–2020',details:"Dean's List · GPA 3.9 · Focus: Distributed Systems & HCI",isCert:false},
-      {id:2,degree:'M.Sc. Human-Computer Interaction',institution:'Carnegie Mellon University',year:'2020–2022',details:'Research on AI-augmented design tools. Published in CHI 2022.',isCert:false},
-      {id:3,degree:'AWS Solutions Architect',institution:'Amazon Web Services',year:'2023',details:'Professional Certification',isCert:true},
-      {id:4,degree:'Google Cloud Professional Developer',institution:'Google Cloud',year:'2022',details:'',isCert:true},
-      {id:5,degree:'Meta Frontend Developer',institution:'Meta',year:'2021',details:'',isCert:true},
+      {id:1,degree:'Your Degree Here',institution:'Your University',year:'2020–2024',details:'Add your details here',isCert:false},
     ],
     skills:{
-      ml:   ['TensorFlow','PyTorch','Scikit-learn','Keras','Hugging Face','OpenCV','YOLO','LangChain'],
-      lang: ['Python','R','SQL','Java','C++','MATLAB','Scala','Julia'],
-      viz:  ['Tableau','Power BI','Matplotlib','Seaborn','Plotly','Streamlit','Docker','AWS SageMaker'],
-      db:   ['PostgreSQL','MySQL','MongoDB','Redis','Snowflake','BigQuery','SQLite','Cassandra'],
-    }
+      ml:   ['TensorFlow','PyTorch','Scikit-learn','Keras','Hugging Face'],
+      lang: ['Python','R','SQL'],
+      viz:  ['Tableau','Matplotlib','Streamlit'],
+      db:   ['PostgreSQL','MySQL','MongoDB'],
+    },
+    experience:[
+      {id:1,title:'Data Analyst',company:'Your Company',location:'Manila, PH',start:'Jan 2023',end:'Present',type:'Full-time',current:true,desc:'Add your key achievements and responsibilities here.\nOne achievement per line.',tech:'Python, SQL, Tableau'},
+    ]
   };
 
-  function loadData() {
-    try {
-      return {
-        profile:    JSON.parse(localStorage.getItem('pf_profile'))    || {...DEFAULTS.profile},
-        projects:   JSON.parse(localStorage.getItem('pf_projects'))   || [...DEFAULTS.projects],
-        experience: JSON.parse(localStorage.getItem('pf_experience')) || [...DEFAULTS.experience],
-        education:  JSON.parse(localStorage.getItem('pf_education'))  || [...DEFAULTS.education],
-        skills:     JSON.parse(localStorage.getItem('pf_skills'))     || JSON.parse(JSON.stringify(DEFAULTS.skills)),
-      };
-    } catch(e) { return JSON.parse(JSON.stringify(DEFAULTS)); }
+  /* ── LOADING STATE ──────────────────────── */
+  function showLoadingOverlay() {
+    document.getElementById('loadingOverlay').style.display = 'flex';
   }
-  function saveData() {
-    localStorage.setItem('pf_profile',    JSON.stringify(DATA.profile));
-    localStorage.setItem('pf_projects',   JSON.stringify(DATA.projects));
-    localStorage.setItem('pf_experience', JSON.stringify(DATA.experience));
-    localStorage.setItem('pf_education',  JSON.stringify(DATA.education));
-    localStorage.setItem('pf_skills',     JSON.stringify(DATA.skills));
+  function hideLoadingOverlay() {
+    document.getElementById('loadingOverlay').style.display = 'none';
+  }
+  function showSaveSpinner() {
+    document.getElementById('saveToast').textContent = '⏳ Saving...';
+    document.getElementById('saveToast').classList.add('show');
+  }
+  function showToast(msg) {
+    const t = document.getElementById('saveToast');
+    t.textContent = msg || '✓ Saved to cloud';
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+  function showErrorToast(msg) {
+    const t = document.getElementById('saveToast');
+    t.textContent = '✗ ' + (msg || 'Save failed');
+    t.style.background = 'linear-gradient(135deg,#dc2626,#b91c1c)';
+    t.classList.add('show');
+    setTimeout(() => { t.classList.remove('show'); t.style.background = ''; }, 3000);
   }
 
-  let DATA = loadData();
+  /* ── LOAD DATA FROM SUPABASE ────────────── */
+  let DATA = JSON.parse(JSON.stringify(DEFAULTS)); // start with defaults
+
+  async function loadFromSupabase() {
+    showLoadingOverlay();
+    try {
+      const [profile, projects, education, skills, photo, experience] = await Promise.all([
+        dbGet('profile'), dbGet('projects'), dbGet('education'), dbGet('skills'), dbGet('photo'), dbGet('experience')
+      ]);
+      if (profile)    DATA.profile    = profile;
+      if (projects)   DATA.projects   = projects;
+      if (education)  DATA.education  = education;
+      if (skills)     DATA.skills     = skills;
+      if (experience) DATA.experience = experience;
+      if (photo) {
+        const imgEl = document.getElementById('profilePhoto');
+        const phEl  = document.getElementById('photoPlaceholder');
+        imgEl.src = photo; imgEl.style.display = 'block'; phEl.style.display = 'none';
+      }
+    } catch(e) {
+      console.warn('Could not load from Supabase, using defaults:', e);
+    }
+    hideLoadingOverlay();
+    renderAll();
+  }
+
+  /* ── SAVE DATA TO SUPABASE ──────────────── */
+  async function saveData(keys) {
+    // keys = array of what to save e.g. ['profile'] or ['projects'] or all
+    const toSave = keys || ['profile','projects','education','skills','experience'];
+    showSaveSpinner();
+    try {
+      await Promise.all(toSave.map(k => dbSet(k, DATA[k])));
+      showToast('✓ Saved to cloud');
+    } catch(e) {
+      showErrorToast('Save failed — check connection');
+    }
+  }
 
   /* ── COLOR MAP ──────────────────────────── */
   const CM = {
@@ -751,15 +809,6 @@
     violet: {icon:'text-violet-400', badge:'text-violet-400', badgebg:'rgba(167,139,250,0.1)', badgeborder:'rgba(167,139,250,0.25)'},
     orange: {icon:'text-orange-400', badge:'text-orange-400', badgebg:'rgba(251,146,60,0.1)',  badgeborder:'rgba(251,146,60,0.25)'},
     rose:   {icon:'text-rose-400',   badge:'text-rose-400',   badgebg:'rgba(251,113,133,0.1)', badgeborder:'rgba(251,113,133,0.25)'},
-  };
-
-  /* ── EXPERIENCE TYPE LABELS ─────────────── */
-  const EXP_TYPES = {
-    fulltime:  { label: 'Full-time',   cls: 'exp-type-fulltime'  },
-    parttime:  { label: 'Part-time',   cls: 'exp-type-parttime'  },
-    contract:  { label: 'Contract',    cls: 'exp-type-contract'  },
-    freelance: { label: 'Freelance',   cls: 'exp-type-freelance' },
-    intern:    { label: 'Internship',  cls: 'exp-type-intern'    },
   };
 
   /* ── RENDER: PROJECTS ───────────────────── */
@@ -800,55 +849,31 @@
   /* ── RENDER: EXPERIENCE ─────────────────── */
   function renderExperience() {
     const list = document.getElementById('experienceList');
+    if (!list) return;
     list.innerHTML = '';
-
-    if (DATA.experience.length === 0) {
-      list.innerHTML = `<p style="color:#475569;font-size:0.85rem;font-family:'DM Mono',monospace;padding:1rem 0;">No experience entries yet. Add some in the Admin Panel (Ctrl+Shift+A).</p>`;
+    if (!DATA.experience || DATA.experience.length === 0) {
+      list.innerHTML = '<p class="lm-sub text-slate-500 text-sm">No experience entries yet. Add them via the Admin Panel.</p>';
       return;
     }
-
-    DATA.experience.forEach(ex => {
-      const typeInfo = EXP_TYPES[ex.type] || EXP_TYPES.fulltime;
-      const bullets  = (ex.desc || '').split('\n').filter(b => b.trim());
-      const techList = (ex.tech || '').split(',').map(t => t.trim()).filter(Boolean);
-
+    DATA.experience.forEach(e => {
+      const achievements = (e.desc || '').split('\n').filter(l => l.trim());
+      const techList = (e.tech || '').split(',').map(t => t.trim()).filter(Boolean);
       const div = document.createElement('div');
-      div.className = 'relative exp-timeline-dot reveal';
+      div.className = 'bento-card lm-card group bg-slate-900 border border-slate-800 rounded-2xl p-7 reveal';
       div.innerHTML = `
-        <div class="exp-card lm-expcard">
-          <!-- Header row -->
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-            <div>
-              <div class="flex flex-wrap items-center gap-2 mb-1">
-                <h4 class="lm-h text-slate-100 font-semibold text-base leading-tight">${ex.title}</h4>
-                <span class="exp-type-badge ${typeInfo.cls}">${typeInfo.label}</span>
-              </div>
-              <p class="text-amber-400 text-sm font-semibold">${ex.company}</p>
-              ${ex.location ? `<p class="lm-sub text-slate-500 text-xs mt-0.5 flex items-center gap-1">
-                <svg style="width:.75rem;height:.75rem;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                ${ex.location}</p>` : ''}
-            </div>
-            <span class="lm-tag text-xs font-mono text-orange-400 bg-orange-400/10 border border-orange-400/20 px-2.5 py-1 rounded-md flex-shrink-0 whitespace-nowrap">
-              ${ex.start}${ex.end ? ' – ' + ex.end : ''}
-            </span>
+        <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+          <div>
+            <h3 class="lm-h text-xl font-display text-slate-100 group-hover:text-sky-300 transition-colors">${e.title}</h3>
+            <p class="text-sky-400 text-sm font-medium mt-0.5">${e.company}${e.location ? ' · ' + e.location : ''}</p>
           </div>
-
-          <!-- Bullets -->
-          ${bullets.length > 0 ? `
-          <ul class="space-y-1.5 mb-3">
-            ${bullets.map(b => `
-            <li class="flex items-start gap-2 text-sm lm-body text-slate-400 leading-relaxed">
-              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-500/60 flex-shrink-0"></span>
-              ${b}
-            </li>`).join('')}
-          </ul>` : ''}
-
-          <!-- Tech tags -->
-          ${techList.length > 0 ? `
-          <div class="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-slate-800/60">
-            ${techList.map(t => `<span class="lm-tech-badge text-xs font-mono text-slate-500 bg-slate-800 border border-slate-700/60 rounded-md px-2 py-0.5">${t}</span>`).join('')}
-          </div>` : ''}
-        </div>`;
+          <div class="flex flex-col items-start md:items-end gap-1.5 flex-shrink-0">
+            <span class="lm-tag text-xs font-mono text-teal-400 bg-teal-400/10 border border-teal-400/20 px-2.5 py-1 rounded-md whitespace-nowrap">${e.start} — ${e.end || 'Present'}</span>
+            <span class="lm-tech-badge text-xs font-mono text-slate-500 bg-slate-800 px-2 py-0.5 rounded-md">${e.type}</span>
+          </div>
+        </div>
+        ${achievements.length ? `<ul class="space-y-1.5 mb-4">${achievements.map(a=>`<li class="lm-body text-slate-400 text-sm flex gap-2"><span class="text-sky-500 mt-1 flex-shrink-0">›</span><span>${a}</span></li>`).join('')}</ul>` : ''}
+        ${techList.length ? `<div class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-800">${techList.map(t=>`<span class="tag-pill lm-pill text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded-full px-2.5 py-1">${t}</span>`).join('')}</div>` : ''}
+      `;
       list.appendChild(div);
     });
     reObserve();
@@ -862,27 +887,27 @@
     DATA.education.forEach(e => {
       if (!e.isCert) {
         const div = document.createElement('div');
-        div.className = 'relative timeline-dot';
+        div.className = 'timeline-dot';
         div.innerHTML = `
-          <div class="flex items-start justify-between gap-4">
-            <div class="min-w-0">
-              <h4 class="lm-h text-slate-100 font-semibold text-base leading-snug">${e.degree}</h4>
-              <p class="text-sky-400 text-sm mt-1 font-medium">${e.institution}</p>
-              ${e.details ? `<p class="lm-sub text-slate-500 text-xs mt-2 leading-relaxed">${e.details}</p>` : ''}
+          <div class="lm-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-600 transition-colors">
+            <div class="flex items-start justify-between gap-3 mb-1">
+              <h4 class="lm-h text-slate-100 font-semibold text-sm leading-snug">${e.degree}</h4>
+              <span class="lm-tag text-xs font-mono text-teal-400 bg-teal-400/10 border border-teal-400/20 px-2 py-0.5 rounded-md flex-shrink-0 whitespace-nowrap">${e.year}</span>
             </div>
-            <span class="text-xs font-mono text-teal-400 bg-teal-400/10 border border-teal-400/20 px-2.5 py-1 rounded-md flex-shrink-0 mt-0.5 whitespace-nowrap">${e.year}</span>
+            <p class="text-sky-400 text-xs font-medium">${e.institution}</p>
+            ${e.details ? `<p class="lm-sub text-slate-500 text-xs mt-2 leading-relaxed">${e.details}</p>` : ''}
           </div>`;
         list.appendChild(div);
       } else {
         const div = document.createElement('div');
         div.className = 'lm-certcard flex items-center gap-3 p-3 bg-slate-900 border border-slate-800 rounded-xl hover:border-slate-600 transition-colors';
         div.innerHTML = `
-          <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-sky-400 to-teal-400 flex-shrink-0"></div>
+          <div class="w-2 h-2 rounded-full bg-gradient-to-r from-sky-400 to-teal-400 flex-shrink-0"></div>
           <div class="flex-1 min-w-0">
-            <p class="lm-h text-xs font-medium text-slate-200 truncate">${e.degree}</p>
-            <p class="lm-sub text-xs text-slate-500">${e.institution}</p>
+            <p class="lm-h text-xs font-semibold text-slate-200 truncate">${e.degree}</p>
+            <p class="lm-sub text-xs text-slate-500 mt-0.5">${e.institution}</p>
           </div>
-          <span class="lm-faint text-xs font-mono text-slate-600">${e.year}</span>`;
+          <span class="lm-faint text-xs font-mono text-slate-600 flex-shrink-0">${e.year}</span>`;
         certs.appendChild(div);
       }
     });
@@ -911,39 +936,31 @@
     document.getElementById('statYears').textContent     = p.statYears;
     document.getElementById('statProjects').textContent  = p.statProjects;
     document.getElementById('statClients').textContent   = p.statClients;
+    // Footer
     document.getElementById('footerName').textContent    = p.name;
+    // Nav logo initials
     const initials = p.name.split(' ').map(w=>w[0]).join('');
     document.getElementById('navLogo').innerHTML = `${initials}<span class="text-teal-400">.</span>`;
 
-    const gmailHref = 'https://mail.google.com/mail/?view=cm&to=' + encodeURIComponent(p.email);
-    document.getElementById('heroEmail').href         = gmailHref;
-    document.getElementById('heroEmail').target       = '_blank';
-    document.getElementById('heroEmail').rel          = 'noopener';
+    // ── Social links (hero row + contact section + photo card) ──
+    const emailHref = 'mailto:' + p.email;
+    document.getElementById('heroEmail').href         = emailHref;
     document.getElementById('heroLinkedin').href      = p.linkedin || '#';
     document.getElementById('heroGithub').href        = p.github   || '#';
-    document.getElementById('contactEmail').href      = gmailHref;
-    document.getElementById('contactEmail').target    = '_blank';
-    document.getElementById('contactEmail').rel       = 'noopener';
+    document.getElementById('contactEmail').href      = emailHref;
     document.getElementById('contactLinkedin').href   = p.linkedin || '#';
     document.getElementById('contactGithub').href     = p.github   || '#';
-    document.getElementById('photoEmailLink').href    = gmailHref;
-    document.getElementById('photoEmailLink').target  = '_blank';
-    document.getElementById('photoEmailLink').rel     = 'noopener';
+    document.getElementById('photoEmailLink').href    = emailHref;
     document.getElementById('photoLinkedinLink').href = p.linkedin || '#';
     document.getElementById('photoGithubLink').href   = p.github   || '#';
 
+    // ── Photo card ──
     document.getElementById('photoName').textContent  = p.name;
     document.getElementById('photoRole').textContent  = p.role.split('&')[0].trim();
     document.getElementById('photoStatusText').textContent = p.status;
 
-    const photoData = localStorage.getItem('pf_photo');
-    const imgEl  = document.getElementById('profilePhoto');
-    const phEl   = document.getElementById('photoPlaceholder');
-    if (photoData) {
-      imgEl.src = photoData; imgEl.style.display = 'block'; phEl.style.display = 'none';
-    } else {
-      imgEl.style.display = 'none'; phEl.style.display = 'flex';
-    }
+    // ── Profile photo loaded from Supabase on init ──
+    // (handled in loadFromSupabase, not here)
   }
 
   function renderAll() { renderProfile(); renderProjects(); renderExperience(); renderEducation(); renderSkills(); }
@@ -972,10 +989,15 @@
     }
   })();
 
-  /* ── ADMIN ──────────────────────────────── */
-  const ADMIN_PASSWORD = 'myportfolio2025';
-  let adminUnlocked = false;
+  /* ── ADMIN ──────────────────────────────────────────────────
+     ACCESS: Ctrl+Shift+A  →  password gate  →  admin panel
+     TO CHANGE PASSWORD: update the ADMIN_PASSWORD string below
+     ─────────────────────────────────────────────────────────── */
+  const ADMIN_PASSWORD = 'myportfolio2025'; // ← change this to your own password
 
+  let adminUnlocked = false; // stays true for this browser session once authenticated
+
+  // Secret keyboard shortcut — invisible to visitors
   document.addEventListener('keydown', e => {
     if (e.ctrlKey && e.shiftKey && e.key === 'A') {
       e.preventDefault();
@@ -983,6 +1005,7 @@
     }
   });
 
+  /* ── Password gate ── */
   function openPwGate() {
     const gate = document.getElementById('pwGate');
     gate.style.display = 'flex';
@@ -993,108 +1016,174 @@
   function closePwGate() {
     document.getElementById('pwGate').style.display = 'none';
     document.getElementById('pwInput').value = '';
-    document.getElementById('pwError').style.display = 'none';
+    const err = document.getElementById('pwError');
+    err.style.display = 'none';
+    err.textContent = 'Incorrect password. Try again.';
   }
   function closePwGateIfOutside(e) {
     if (e.target === document.getElementById('pwGate')) closePwGate();
   }
   function togglePwVisibility() {
     const inp = document.getElementById('pwInput');
-    inp.type = inp.type === 'password' ? 'text' : 'password';
+    const isHidden = inp.type === 'password';
+    inp.type = isHidden ? 'text' : 'password';
   }
+  /* ── Brute-force protection ── */
+  let pwAttempts = 0;
+  const MAX_ATTEMPTS = 5;
+  const LOCKOUT_MS = 30000; // 30 seconds
+  let lockedUntil = 0;
+
   function checkPassword() {
+    const now = Date.now();
+
+    // Locked out?
+    if (now < lockedUntil) {
+      const secsLeft = Math.ceil((lockedUntil - now) / 1000);
+      showPwError(`Too many attempts. Try again in ${secsLeft}s.`);
+      document.getElementById('pwInput').value = '';
+      startLockoutCountdown();
+      return;
+    }
+
     const val = document.getElementById('pwInput').value;
     if (val === ADMIN_PASSWORD) {
+      // Success — reset counters
+      pwAttempts = 0;
+      lockedUntil = 0;
       adminUnlocked = true;
       closePwGate();
       openAdmin();
     } else {
-      const err = document.getElementById('pwError');
-      err.style.display = 'block';
+      pwAttempts++;
+      document.getElementById('pwInput').value = '';
+      document.getElementById('pwInput').focus();
+
+      // Shake + red border
       const inp = document.getElementById('pwInput');
-      inp.value = '';
       inp.style.borderColor = '#f87171';
-      inp.focus();
       setTimeout(() => { inp.style.borderColor = '#334155'; }, 1200);
+
+      if (pwAttempts >= MAX_ATTEMPTS) {
+        lockedUntil = Date.now() + LOCKOUT_MS;
+        showPwError(`Too many attempts. Locked for 30s.`);
+        document.getElementById('pwInput').disabled = true;
+        startLockoutCountdown();
+      } else {
+        const remaining = MAX_ATTEMPTS - pwAttempts;
+        showPwError(`Incorrect password. ${remaining} attempt${remaining !== 1 ? 's' : ''} left.`);
+      }
     }
   }
 
-  function openAdmin()  { document.getElementById('adminOverlay').classList.add('open'); loadAdminFields(); }
-  function closeAdmin() { document.getElementById('adminOverlay').classList.remove('open'); }
+  function showPwError(msg) {
+    const err = document.getElementById('pwError');
+    err.textContent = msg;
+    err.style.display = 'block';
+  }
+
+  function startLockoutCountdown() {
+    document.getElementById('pwInput').disabled = true;
+    const interval = setInterval(() => {
+      const now = Date.now();
+      if (now >= lockedUntil) {
+        clearInterval(interval);
+        pwAttempts = 0;
+        document.getElementById('pwInput').disabled = false;
+        document.getElementById('pwInput').focus();
+        showPwError('');
+        document.getElementById('pwError').style.display = 'none';
+      } else {
+        const secsLeft = Math.ceil((lockedUntil - now) / 1000);
+        showPwError(`Too many attempts. Try again in ${secsLeft}s.`);
+      }
+    }, 1000);
+  }
+
+  /* ── Admin panel ── */
+  function openAdmin() { document.getElementById('adminOverlay').classList.add('open'); loadAdminFields(); }
+  function closeAdmin() {
+    document.getElementById('adminOverlay').classList.remove('open');
+    // Optional: lock again after closing so each visit requires re-auth
+    // adminUnlocked = false;
+  }
   function closeAdminIfOutside(e) { if(e.target===document.getElementById('adminOverlay')) closeAdmin(); }
 
   function switchTab(name){
     ['profile','projects','experience','education','skills'].forEach(t=>{
-      document.getElementById('pane-'+t).style.display = t===name ? 'block' : 'none';
-      document.getElementById('tab-'+t).classList.toggle('active', t===name);
+      document.getElementById('pane-'+t).style.display=t===name?'block':'none';
+      document.getElementById('tab-'+t).classList.toggle('active',t===name);
     });
-    if(name==='projects')   renderAdminProjects();
-    if(name==='experience') renderAdminExperience();
-    if(name==='education')  renderAdminEducation();
-    if(name==='skills')     renderAdminSkills();
+    if(name==='projects')   {renderAdminProjects();}
+    if(name==='experience') {renderAdminExperience();}
+    if(name==='education')  {renderAdminEducation();}
+    if(name==='skills')     {renderAdminSkills();}
   }
 
-  function showToast(){ const t=document.getElementById('saveToast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2200); }
-
+  /* ── ADMIN FUNCTIONS ────────────────────── */
   /* Profile admin */
   function loadAdminFields(){
     const p=DATA.profile;
     ['name','role','email','status','bio','hero1','hero2','hero3','linkedin','github'].forEach(k=>{
       const el=document.getElementById('a_'+k); if(el) el.value=p[k]||'';
     });
-    document.getElementById('a_sYears').value    = p.statYears   || '';
-    document.getElementById('a_sProjects').value = p.statProjects || '';
-    document.getElementById('a_sClients').value  = p.statClients  || '';
-    const photoData = localStorage.getItem('pf_photo');
-    const prev = document.getElementById('adminPhotoPreview');
-    if (photoData) {
-      prev.innerHTML = `<img src="${photoData}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+    document.getElementById('a_sYears').value   =p.statYears||'';
+    document.getElementById('a_sProjects').value=p.statProjects||'';
+    document.getElementById('a_sClients').value =p.statClients||'';
+    // Load photo preview in admin (already loaded from Supabase on init)
+    const imgEl = document.getElementById('profilePhoto');
+    const prev  = document.getElementById('adminPhotoPreview');
+    if (imgEl && imgEl.src && imgEl.style.display !== 'none') {
+      prev.innerHTML = `<img src="${imgEl.src}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
     }
   }
 
   function previewPhoto(input) {
     if (!input.files || !input.files[0]) return;
     const reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = async function(e) {
       const data = e.target.result;
-      localStorage.setItem('pf_photo', data);
+      // Update preview in admin panel
       document.getElementById('adminPhotoPreview').innerHTML =
         `<img src="${data}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+      // Update live on page
       const imgEl = document.getElementById('profilePhoto');
       const phEl  = document.getElementById('photoPlaceholder');
       imgEl.src = data; imgEl.style.display = 'block'; phEl.style.display = 'none';
-      showToast();
+      // Save to Supabase
+      showSaveSpinner();
+      try { await dbSet('photo', data); showToast('✓ Photo saved to cloud'); }
+      catch(e) { showErrorToast('Photo save failed'); }
     };
     reader.readAsDataURL(input.files[0]);
   }
 
-  function removePhoto() {
-    localStorage.removeItem('pf_photo');
+  async function removePhoto() {
+    showSaveSpinner();
+    try { await dbSet('photo', null); showToast('✓ Photo removed'); } catch(e) { showErrorToast('Remove failed'); }
     document.getElementById('adminPhotoPreview').innerHTML =
       `<svg style="width:2rem;height:2rem;color:#475569;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>`;
     document.getElementById('profilePhoto').style.display = 'none';
     document.getElementById('photoPlaceholder').style.display = 'flex';
     document.getElementById('a_photo').value = '';
-    showToast();
   }
-
   function saveProfile(){
     DATA.profile={
-      name:         document.getElementById('a_name').value,
-      role:         document.getElementById('a_role').value,
-      email:        document.getElementById('a_email').value,
-      status:       document.getElementById('a_status').value,
-      bio:          document.getElementById('a_bio').value,
-      hero1:        document.getElementById('a_hero1').value,
-      hero2:        document.getElementById('a_hero2').value,
-      hero3:        document.getElementById('a_hero3').value,
+      name:    document.getElementById('a_name').value,
+      role:    document.getElementById('a_role').value,
+      email:   document.getElementById('a_email').value,
+      status:  document.getElementById('a_status').value,
+      bio:     document.getElementById('a_bio').value,
+      hero1:   document.getElementById('a_hero1').value,
+      hero2:   document.getElementById('a_hero2').value,
+      hero3:   document.getElementById('a_hero3').value,
       statYears:    document.getElementById('a_sYears').value,
       statProjects: document.getElementById('a_sProjects').value,
       statClients:  document.getElementById('a_sClients').value,
-      linkedin:     document.getElementById('a_linkedin').value,
-      github:       document.getElementById('a_github').value,
+      linkedin:document.getElementById('a_linkedin').value,
+      github:  document.getElementById('a_github').value,
     };
-    saveData(); renderProfile(); showToast();
+    saveData(['profile']); renderProfile();
   }
 
   /* Projects admin */
@@ -1102,20 +1191,19 @@
     const title=document.getElementById('p_title').value.trim(); if(!title)return;
     DATA.projects.push({
       id:Date.now(), title,
-      stack:   document.getElementById('p_stack').value,
-      badge:   document.getElementById('p_badge').value||'Project',
-      desc:    document.getElementById('p_desc').value,
-      demo:    document.getElementById('p_demo').value||'#',
-      github:  document.getElementById('p_github').value||'#',
-      color:   document.getElementById('p_color').value,
+      stack:  document.getElementById('p_stack').value,
+      badge:  document.getElementById('p_badge').value||'Project',
+      desc:   document.getElementById('p_desc').value,
+      demo:   document.getElementById('p_demo').value||'#',
+      github: document.getElementById('p_github').value||'#',
+      color:  document.getElementById('p_color').value,
       featured:document.getElementById('p_featured').checked,
     });
-    saveData(); renderProjects(); renderAdminProjects();
+    saveData(['projects']); renderProjects(); renderAdminProjects();
     ['p_title','p_stack','p_badge','p_desc','p_demo','p_github'].forEach(id=>document.getElementById(id).value='');
     document.getElementById('p_featured').checked=false;
-    showToast();
   }
-  function deleteProject(id){DATA.projects=DATA.projects.filter(p=>p.id!==id);saveData();renderProjects();renderAdminProjects();}
+  function deleteProject(id){DATA.projects=DATA.projects.filter(p=>p.id!==id);saveData(['projects']);renderProjects();renderAdminProjects();}
   function renderAdminProjects(){
     const el=document.getElementById('adminProjectsList');
     document.getElementById('projectCount').textContent=DATA.projects.length;
@@ -1129,42 +1217,6 @@
       </div>`).join('');
   }
 
-  /* Experience admin */
-  function addExperience(){
-    const title=document.getElementById('ex_title').value.trim(); if(!title)return;
-    DATA.experience.push({
-      id:       Date.now(),
-      title,
-      company:  document.getElementById('ex_company').value,
-      location: document.getElementById('ex_location').value,
-      start:    document.getElementById('ex_start').value,
-      end:      document.getElementById('ex_end').value,
-      type:     document.getElementById('ex_type').value,
-      desc:     document.getElementById('ex_desc').value,
-      tech:     document.getElementById('ex_tech').value,
-    });
-    saveData(); renderExperience(); renderAdminExperience();
-    ['ex_title','ex_company','ex_location','ex_start','ex_end','ex_desc','ex_tech'].forEach(id=>document.getElementById(id).value='');
-    document.getElementById('ex_type').value='fulltime';
-    showToast();
-  }
-  function deleteExperience(id){
-    DATA.experience=DATA.experience.filter(e=>e.id!==id);
-    saveData(); renderExperience(); renderAdminExperience();
-  }
-  function renderAdminExperience(){
-    const el=document.getElementById('adminExperienceList');
-    document.getElementById('experienceCount').textContent=DATA.experience.length;
-    el.innerHTML=DATA.experience.map(ex=>`
-      <div class="admin-item">
-        <div style="flex:1;min-width:0;">
-          <p style="color:#e2e8f0;font-size:0.82rem;font-weight:600;">${ex.title}</p>
-          <p style="color:#64748b;font-size:0.72rem;font-family:'DM Mono',monospace;">${ex.company} · ${ex.start}${ex.end?' – '+ex.end:''} · <span style="color:#f59e0b;">${(EXP_TYPES[ex.type]||EXP_TYPES.fulltime).label}</span></p>
-        </div>
-        <button class="admin-btn-danger" onclick="deleteExperience(${ex.id})">Delete</button>
-      </div>`).join('');
-  }
-
   /* Education admin */
   function addEducation(){
     const degree=document.getElementById('e_degree').value.trim(); if(!degree)return;
@@ -1175,12 +1227,11 @@
       details:    document.getElementById('e_details').value,
       isCert:     document.getElementById('e_isCert').checked,
     });
-    saveData(); renderEducation(); renderAdminEducation();
+    saveData(['education']); renderEducation(); renderAdminEducation();
     ['e_degree','e_institution','e_year','e_details'].forEach(id=>document.getElementById(id).value='');
     document.getElementById('e_isCert').checked=false;
-    showToast();
   }
-  function deleteEducation(id){DATA.education=DATA.education.filter(e=>e.id!==id);saveData();renderEducation();renderAdminEducation();}
+  function deleteEducation(id){DATA.education=DATA.education.filter(e=>e.id!==id);saveData(['education']);renderEducation();renderAdminEducation();}
   function renderAdminEducation(){
     document.getElementById('adminEducationList').innerHTML=DATA.education.map(e=>`
       <div class="admin-item">
@@ -1192,18 +1243,60 @@
       </div>`).join('');
   }
 
+  /* Experience admin */
+  function addExperience(){
+    const title=document.getElementById('ex_title').value.trim(); if(!title)return;
+    if(!DATA.experience) DATA.experience=[];
+    const isCurrent=document.getElementById('ex_current').checked;
+    DATA.experience.push({
+      id:       Date.now(),
+      title,
+      company:  document.getElementById('ex_company').value,
+      location: document.getElementById('ex_location').value,
+      start:    document.getElementById('ex_start').value,
+      end:      isCurrent ? 'Present' : document.getElementById('ex_end').value,
+      type:     document.getElementById('ex_type').value,
+      current:  isCurrent,
+      desc:     document.getElementById('ex_desc').value,
+      tech:     document.getElementById('ex_tech').value,
+    });
+    saveData(['experience']); renderExperience(); renderAdminExperience();
+    ['ex_title','ex_company','ex_location','ex_start','ex_end','ex_desc','ex_tech'].forEach(id=>{
+      const el=document.getElementById(id); if(el){ el.value=''; el.disabled=false; }
+    });
+    document.getElementById('ex_current').checked=false;
+  }
+  function deleteExperience(id){
+    DATA.experience=DATA.experience.filter(e=>e.id!==id);
+    saveData(['experience']); renderExperience(); renderAdminExperience();
+  }
+  function renderAdminExperience(){
+    if(!DATA.experience) DATA.experience=[];
+    const el=document.getElementById('adminExperienceList');
+    const cnt=document.getElementById('experienceCount');
+    if(cnt) cnt.textContent=DATA.experience.length;
+    el.innerHTML=DATA.experience.map(e=>`
+      <div class="admin-item">
+        <div style="flex:1;min-width:0;">
+          <p style="color:#e2e8f0;font-size:0.82rem;font-weight:600;">${e.title}</p>
+          <p style="color:#64748b;font-size:0.72rem;font-family:'DM Mono',monospace;">${e.company} · ${e.start}–${e.end||'Present'} · ${e.type}</p>
+        </div>
+        <button class="admin-btn-danger" onclick="deleteExperience(${e.id})">Delete</button>
+      </div>`).join('');
+  }
+
   /* Skills admin */
   function addSkill(){
     const name=document.getElementById('sk_name').value.trim(), cat=document.getElementById('sk_cat').value;
     if(!name)return;
     if(!DATA.skills[cat]) DATA.skills[cat]=[];
     if(!DATA.skills[cat].includes(name)) DATA.skills[cat].push(name);
-    saveData(); renderSkills(); renderAdminSkills();
-    document.getElementById('sk_name').value=''; showToast();
+    saveData(['skills']); renderSkills(); renderAdminSkills();
+    document.getElementById('sk_name').value='';
   }
   function deleteSkill(cat,name){
     DATA.skills[cat]=DATA.skills[cat].filter(s=>s!==name);
-    saveData(); renderSkills(); renderAdminSkills();
+    saveData(['skills']); renderSkills(); renderAdminSkills();
   }
   function renderAdminSkills(){
     ['ml','lang','viz','db'].forEach(cat=>{
@@ -1216,9 +1309,9 @@
         </div>`).join('');
     });
   }
-
   /* ── INIT ───────────────────────────────── */
-  renderAll();
+  loadFromSupabase(); // loads from Supabase then calls renderAll()
+
   </script>
 </body>
 </html>
