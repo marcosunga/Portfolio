@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> Marco R. Sunga — Portfolio</title>
+  <title>Marco R. Sunga — Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -256,162 +256,18 @@
     .social-link:hover { border-color:#38bdf8; color:#38bdf8; background:rgba(56,189,248,0.06); }
     html:not(.dark) .social-link { border-color:#cbd5e1; color:#64748b; }
     html:not(.dark) .social-link:hover { border-color:#0ea5e9; color:#0ea5e9; background:rgba(14,165,233,0.06); }
-
-    /* ══════════════════════════════════════
-       MOBILE NAV DRAWER
-       ══════════════════════════════════════ */
-    .mobile-menu {
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 49;
-      background: rgba(2, 6, 23, 0.97);
-      backdrop-filter: blur(20px);
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      gap: 0.5rem;
-      transform: translateY(-100%);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      pointer-events: none;
-    }
-    .mobile-menu.open {
-      transform: translateY(0);
-      pointer-events: all;
-    }
-    html:not(.dark) .mobile-menu { background: rgba(248, 250, 252, 0.97); }
-
-    .mobile-menu-link {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.25rem;
-      color: #475569;
-      text-decoration: none;
-      transition: color 0.2s ease, transform 0.2s ease;
-      display: block; padding: 0.375rem 0;
-    }
-    .mobile-menu-link:hover { color: #38bdf8; transform: translateX(6px); }
-    html:not(.dark) .mobile-menu-link { color: #64748b; }
-    html:not(.dark) .mobile-menu-link:hover { color: #0ea5e9; }
-
-    /* Hamburger button */
-    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-    .hamburger span {
-      display: block; width: 22px; height: 2px; border-radius: 2px;
-      background: #94a3b8;
-      transition: all 0.3s ease;
-      transform-origin: center;
-    }
-    html:not(.dark) .hamburger span { background: #64748b; }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* ══════════════════════════════════════
-       MOBILE SPECIFIC OVERRIDES
-       ══════════════════════════════════════ */
-    @media (max-width: 640px) {
-      /* Hero: photo first on mobile, smaller */
-      .hero-layout { flex-direction: column-reverse !important; align-items: center !important; text-align: center; }
-      .hero-text { align-items: center; }
-      .hero-cta { justify-content: center !important; }
-      .hero-social { justify-content: center !important; }
-      .hero-stats { justify-content: center !important; }
-      .photo-ring { width: 160px !important; height: 160px !important; }
-
-      /* Admin panel full screen on mobile */
-      .admin-panel { width: 100vw !important; max-height: 100vh !important; border-radius: 0 !important; }
-
-      /* Chat window full width on mobile */
-      #chatWindow { right: 0 !important; left: 0 !important; width: 100vw !important; bottom: 5rem !important; }
-      #chatToggle { right: 1rem !important; bottom: 1.25rem !important; }
-
-      /* Section padding tighter */
-      .mobile-section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
-
-      /* Bento grid single col handled by Tailwind, but ensure no overflow */
-      .bento-card { padding: 1.25rem !important; }
-
-      /* Skills tags smaller gap */
-      .tag-cloud { gap: 0.375rem !important; }
-
-      /* Photo name card narrower */
-      .photo-namecard { width: 180px !important; }
-    }
-
-    @media (max-width: 768px) {
-      /* Reduce hero headline size further */
-      .hero-h1 { font-size: clamp(2.25rem, 8vw, 3.5rem) !important; }
-
-      /* Education split stacked */
-      .edu-grid { grid-template-columns: 1fr !important; }
-
-      /* Stats wrap tighter */
-      .stats-row { gap: 1.25rem !important; }
-    }
-
-    /* Bottom nav bar for mobile */
-    .mobile-bottom-bar {
-      display: none;
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 48;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(16px);
-      border-top: 1px solid rgba(148,163,184,0.08);
-      padding: 0.5rem 0 calc(0.5rem + env(safe-area-inset-bottom));
-    }
-    html:not(.dark) .mobile-bottom-bar {
-      background: rgba(255,255,255,0.95);
-      border-top: 1px solid rgba(0,0,0,0.07);
-    }
-    @media (max-width: 768px) { .mobile-bottom-bar { display: block; } }
-
-    .mobile-bottom-items { display: flex; justify-content: space-around; align-items: center; }
-    .mobile-tab-btn {
-      display: flex; flex-direction: column; align-items: center; gap: 3px;
-      padding: 0.375rem 0.75rem; border: none; background: none; cursor: pointer;
-      color: #475569; transition: color 0.2s ease; text-decoration: none;
-      font-size: 0.6rem; font-family: 'DM Mono', monospace; font-weight: 500;
-      letter-spacing: 0.05em; text-transform: uppercase;
-    }
-    .mobile-tab-btn svg { width: 1.25rem; height: 1.25rem; }
-    .mobile-tab-btn:hover, .mobile-tab-btn.active { color: #38bdf8; }
-    html:not(.dark) .mobile-tab-btn { color: #94a3b8; }
-    html:not(.dark) .mobile-tab-btn:hover { color: #0ea5e9; }
-
-    /* Add bottom padding on mobile so content isn't hidden under bottom bar */
-    @media (max-width: 768px) {
-      body { padding-bottom: 4rem; }
-    }
   </style>
 </head>
 
 <!-- ADMIN: Press Ctrl+Shift+A to open the admin panel -->
 <body class="bg-slate-950 text-slate-100 min-h-screen overflow-x-hidden relative z-10">
 
-  <!-- ══ MOBILE MENU DRAWER ══ -->
-  <div id="mobileMenu" class="mobile-menu md:hidden">
-    <div style="position:absolute;top:1.25rem;right:1.5rem;">
-      <button class="hamburger open" id="mobileMenuCloseBtn" onclick="toggleMobileMenu()" aria-label="Close menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <a href="#projects"  onclick="toggleMobileMenu()" class="mobile-menu-link">Projects</a>
-    <a href="#education" onclick="toggleMobileMenu()" class="mobile-menu-link">Education</a>
-    <a href="#skills"    onclick="toggleMobileMenu()" class="mobile-menu-link">Skills</a>
-    <a href="#contact"   onclick="toggleMobileMenu()" class="mobile-menu-link">Contact</a>
-    <div style="margin-top:1.5rem;display:flex;gap:1rem;">
-      <a id="mobileEmailLink"    href="#" class="text-slate-500 hover:text-sky-400 transition-colors">
-        <svg style="width:1.4rem;height:1.4rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-      </a>
-      <a id="mobileLinkedinLink" href="#" target="_blank" class="text-slate-500 hover:text-sky-400 transition-colors">
-        <svg style="width:1.4rem;height:1.4rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-      <a id="mobileGithubLink"   href="#" target="_blank" class="text-slate-500 hover:text-sky-400 transition-colors">
-        <svg style="width:1.4rem;height:1.4rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-      </a>
-    </div>
-  </div>
-
   <!-- ══ NAVBAR ══ -->
   <nav class="glass fixed top-0 left-0 right-0 z-50">
-    <div class="max-w-5xl mx-auto px-5 py-3.5 flex items-center justify-between">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#hero" id="navLogo" class="font-mono text-sm tracking-widest text-sky-400 font-medium lm-h">AC<span class="text-teal-400">.</span></a>
       <!-- Desktop nav links -->
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <div class="flex items-center gap-8 text-sm font-medium">
         <a href="#projects"  class="nav-link lm-navlink text-slate-400 hover:text-slate-100 transition-colors">Projects</a>
         <a href="#education" class="nav-link lm-navlink text-slate-400 hover:text-slate-100 transition-colors">Education</a>
         <a href="#skills"    class="nav-link lm-navlink text-slate-400 hover:text-slate-100 transition-colors">Skills</a>
@@ -424,81 +280,50 @@
           <svg id="sunIcon" class="w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
         </button>
         <!-- Desktop: Hire Me -->
-        <a href="#contact" class="hidden md:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r from-sky-500 to-teal-500 text-white hover:from-sky-400 hover:to-teal-400 transition-all shadow-lg shadow-sky-500/20">
+        <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r from-sky-500 to-teal-500 text-white hover:from-sky-400 hover:to-teal-400 transition-all shadow-lg shadow-sky-500/20">
           Hire Me <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
-        <!-- Mobile: hamburger -->
-        <button id="hamburgerBtn" class="hamburger md:hidden" onclick="toggleMobileMenu()" aria-label="Open menu">
-          <span></span><span></span><span></span>
-        </button>
       </div>
     </div>
   </nav>
-
-  <!-- ══ MOBILE BOTTOM BAR ══ -->
-  <nav class="mobile-bottom-bar">
-    <div class="mobile-bottom-items">
-      <a href="#hero" class="mobile-tab-btn" onclick="setActiveTab(this)">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        Home
-      </a>
-      <a href="#projects" class="mobile-tab-btn" onclick="setActiveTab(this)">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-        Work
-      </a>
-      <a href="#education" class="mobile-tab-btn" onclick="setActiveTab(this)">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-        Skills
-      </a>
-      <a href="#contact" class="mobile-tab-btn" onclick="setActiveTab(this)">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        Contact
-      </a>
-      <button onclick="toggleChat()" class="mobile-tab-btn">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
-        Chat
-      </button>
-    </div>
-  </nav>
-
   <!-- ══ HERO ══ -->
   <section id="hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
     <div class="hero-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 absolute"></div>
     <div class="absolute inset-0 opacity-[0.03]" style="background-image:linear-gradient(rgba(148,163,184,1) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,1) 1px,transparent 1px);background-size:60px 60px;"></div>
 
-    <div class="max-w-5xl mx-auto px-5 py-16 md:py-24 relative z-10 w-full">
-      <!-- Mobile: photo on top, text below. Desktop: text left, photo right -->
-      <div class="hero-layout flex flex-col-reverse lg:flex-row items-center lg:items-start gap-10 lg:gap-16">
+    <div class="max-w-5xl mx-auto px-6 py-24 relative z-10 w-full">
+
+      <div class="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16">
 
         <!-- ── LEFT: text content ── -->
-        <div class="hero-text flex-1 min-w-0 flex flex-col items-start w-full">
+        <div class="flex-1 min-w-0">
           <div class="animate-fade-up" style="animation-delay:.1s;opacity:0;">
-            <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono font-medium text-sky-400 bg-sky-400/10 border border-sky-400/20 rounded-full mb-6 md:mb-8">
+            <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono font-medium text-sky-400 bg-sky-400/10 border border-sky-400/20 rounded-full mb-8">
               <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse-slow"></span>
               <span id="heroStatus">Available for new projects</span>
             </span>
           </div>
 
-          <h1 class="hero-h1 leading-tight mb-5 md:mb-6 animate-fade-up" style="font-size:clamp(2.25rem,7vw,4.5rem);animation-delay:.2s;opacity:0;">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 animate-fade-up" style="animation-delay:.2s;opacity:0;">
             <span id="heroLine1" class="lm-h text-slate-100">Building</span><br>
             <span id="heroLine2" class="gradient-text italic">digital craft</span><br>
             <span id="heroLine3" class="lm-h text-slate-100">with purpose.</span>
           </h1>
 
-          <p id="heroBio" class="lm-body text-slate-400 text-base md:text-lg max-w-xl leading-relaxed mb-7 md:mb-8 animate-fade-up" style="animation-delay:.35s;opacity:0;">
+          <p id="heroBio" class="lm-body text-slate-400 text-lg max-w-xl leading-relaxed mb-8 animate-fade-up" style="animation-delay:.35s;opacity:0;">
             Full-stack engineer &amp; UI architect. I turn complex ideas into elegant, performant interfaces that users love and businesses trust.
           </p>
 
           <!-- CTA buttons -->
-          <div class="hero-cta flex flex-wrap gap-3 mb-6 md:mb-8 animate-fade-up" style="animation-delay:.45s;opacity:0;">
-            <a href="#projects" class="group inline-flex items-center gap-2.5 px-5 md:px-6 py-2.5 md:py-3 rounded-xl bg-gradient-to-r from-sky-500 to-teal-500 text-white font-semibold text-sm hover:from-sky-400 hover:to-teal-400 transition-all shadow-xl shadow-sky-500/20 hover:-translate-y-0.5">
+          <div class="flex flex-wrap gap-4 mb-6 md:mb-8 animate-fade-up" style="animation-delay:.45s;opacity:0;">
+            <a href="#projects" class="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-teal-500 text-white font-semibold text-sm hover:from-sky-400 hover:to-teal-400 transition-all shadow-xl shadow-sky-500/20 hover:-translate-y-0.5">
               View Work <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
-            <a href="#contact" class="lm-outline inline-flex items-center gap-2.5 px-5 md:px-6 py-2.5 md:py-3 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-slate-100 font-semibold text-sm transition-all hover:-translate-y-0.5">Let's Talk</a>
+            <a href="#contact" class="lm-outline inline-flex items-center gap-2.5 px-6 py-3 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-slate-100 font-semibold text-sm transition-all hover:-translate-y-0.5">Let's Talk</a>
           </div>
 
           <!-- Social links row -->
-          <div class="hero-social flex flex-wrap gap-2 animate-fade-up" style="animation-delay:.52s;opacity:0;">
+          <div class="flex flex-wrap gap-2 animate-fade-up" style="animation-delay:.52s;opacity:0;">
             <a id="heroEmail" href="/cdn-cgi/l/email-protection#157479706d55706d74786579703b767a78" class="social-link">
               <svg style="width:.9rem;height:.9rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               Email
@@ -514,12 +339,12 @@
           </div>
 
           <!-- Stats -->
-          <div class="hero-stats stats-row flex flex-wrap gap-5 md:gap-8 mt-8 md:mt-10 animate-fade-up" style="animation-delay:.6s;opacity:0;">
-            <div><div id="statYears"    class="text-2xl md:text-3xl font-display font-bold gradient-text">5+</div><div class="lm-sub text-xs text-slate-500 mt-1 font-medium tracking-wide">Years Experience</div></div>
+          <div class="flex flex-wrap gap-8 mt-8 md:mt-10 animate-fade-up" style="animation-delay:.6s;opacity:0;">
+            <div><div id="statYears"    class="text-3xl font-display font-bold gradient-text">5+</div><div class="lm-sub text-xs text-slate-500 mt-1 font-medium tracking-wide">Years Experience</div></div>
             <div class="lm-divider w-px bg-slate-800"></div>
-            <div><div id="statProjects" class="text-2xl md:text-3xl font-display font-bold gradient-text">40+</div><div class="lm-sub text-xs text-slate-500 mt-1 font-medium tracking-wide">Projects Shipped</div></div>
+            <div><div id="statProjects" class="text-3xl font-display font-bold gradient-text">40+</div><div class="lm-sub text-xs text-slate-500 mt-1 font-medium tracking-wide">Projects Shipped</div></div>
             <div class="lm-divider w-px bg-slate-800"></div>
-            <div><div id="statClients"  class="text-2xl md:text-3xl font-display font-bold gradient-text">12+</div><div class="lm-sub text-xs text-slate-500 mt-1 font-medium tracking-wide">Happy Clients</div></div>
+            <div><div id="statClients"  class="text-3xl font-display font-bold gradient-text">12+</div><div class="lm-sub text-xs text-slate-500 mt-1 font-medium tracking-wide">Happy Clients</div></div>
           </div>
         </div>
 
@@ -1037,10 +862,6 @@
     document.getElementById('photoEmailLink').href    = emailHref;
     document.getElementById('photoLinkedinLink').href = p.linkedin || '#';
     document.getElementById('photoGithubLink').href   = p.github   || '#';
-    // Mobile menu links
-    document.getElementById('mobileEmailLink').href    = emailHref;
-    document.getElementById('mobileLinkedinLink').href = p.linkedin || '#';
-    document.getElementById('mobileGithubLink').href   = p.github   || '#';
 
     // ── Photo card ──
     document.getElementById('photoName').textContent  = p.name;
@@ -1061,19 +882,6 @@
   }
 
   function renderAll() { renderProfile(); renderProjects(); renderEducation(); renderSkills(); }
-
-  /* ── MOBILE MENU ────────────────────────── */
-  let menuOpen = false;
-  function toggleMobileMenu() {
-    menuOpen = !menuOpen;
-    document.getElementById('mobileMenu').classList.toggle('open', menuOpen);
-    document.getElementById('hamburgerBtn').classList.toggle('open', menuOpen);
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-  }
-  function setActiveTab(el) {
-    document.querySelectorAll('.mobile-tab-btn').forEach(b => b.classList.remove('active'));
-    el.classList.add('active');
-  }
 
   /* ── SCROLL REVEAL ──────────────────────── */
   let revealObs = new IntersectionObserver(entries => {
@@ -1381,3 +1189,9 @@ Answer in 2–4 sentences. Be enthusiastic and professional.`;
         </div>`).join('');
     });
   }
+  /* ── INIT ───────────────────────────────── */
+  renderAll();
+
+  </script>
+</body>
+</html>
