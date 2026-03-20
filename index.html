@@ -452,8 +452,8 @@
   <!-- ══ FOOTER ══ -->
   <footer class="border-t border-slate-800/60 py-8">
     <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="lm-footertext text-xs text-slate-600 font-mono">© 2025 <span id="footerName">Marco R. Sunga</span>. ArcRomero.</p>
-      <p class="lm-footertext text-xs text-slate-700 font-mono">Data Scientist + Data Analyst · Ready to work</p>
+      <p class="lm-footertext text-xs text-slate-600 font-mono">© 2025 <span id="footerName">Marco R. Sunga</span>. marco.rsunga@gmail.com .</p>
+      <p class="lm-footertext text-xs text-slate-700 font-mono">Data Scientist + Data Engineering · Ready to work. </p>
     </div>
   </footer>
 
@@ -943,14 +943,20 @@
     document.getElementById('navLogo').innerHTML = `${initials}<span class="text-teal-400">.</span>`;
 
     // ── Social links (hero row + contact section + photo card) ──
-    const emailHref = 'mailto:' + p.email;
+    const emailHref = 'https://mail.google.com/mail/?view=cm&to=' + encodeURIComponent(p.email);
     document.getElementById('heroEmail').href         = emailHref;
+    document.getElementById('heroEmail').target       = '_blank';
+    document.getElementById('heroEmail').rel          = 'noopener';
     document.getElementById('heroLinkedin').href      = p.linkedin || '#';
     document.getElementById('heroGithub').href        = p.github   || '#';
     document.getElementById('contactEmail').href      = emailHref;
+    document.getElementById('contactEmail').target    = '_blank';
+    document.getElementById('contactEmail').rel       = 'noopener';
     document.getElementById('contactLinkedin').href   = p.linkedin || '#';
     document.getElementById('contactGithub').href     = p.github   || '#';
     document.getElementById('photoEmailLink').href    = emailHref;
+    document.getElementById('photoEmailLink').target  = '_blank';
+    document.getElementById('photoEmailLink').rel     = 'noopener';
     document.getElementById('photoLinkedinLink').href = p.linkedin || '#';
     document.getElementById('photoGithubLink').href   = p.github   || '#';
 
