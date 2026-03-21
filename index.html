@@ -394,33 +394,30 @@
     </div>
   </section>
 
-  <!-- ══ EDUCATION & SKILLS ══ -->
+  <!-- ══ EDUCATION ══ -->
   <section id="education" class="py-24">
     <div class="max-w-5xl mx-auto px-6">
       <div class="reveal mb-14">
         <span class="font-mono text-xs text-sky-400 tracking-widest uppercase">Background</span>
-        <h2 class="lm-h text-4xl md:text-5xl text-slate-100 mt-2">Education &amp; Skills</h2>
+        <h2 class="lm-h text-4xl md:text-5xl text-slate-100 mt-2">Education</h2>
         <div class="w-12 h-0.5 bg-gradient-to-r from-sky-500 to-teal-500 mt-4"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-        <div class="reveal">
-          <h3 class="lm-faint text-xs font-mono text-slate-500 tracking-widest uppercase mb-8">Education</h3>
-          <div class="relative">
-            <div class="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-sky-500/60 via-teal-500/30 to-transparent"></div>
-            <div id="educationList" class="space-y-4 pl-8"></div>
-          </div>
-        </div>
-        <div id="skills" class="reveal">
-          <h3 class="lm-faint text-xs font-mono text-slate-500 tracking-widest uppercase mb-8">Skills</h3>
-          <div class="space-y-8">
-            <div><p class="lm-faint text-xs text-slate-500 mb-3 font-mono">Machine Learning Models</p><div id="skillsMl" class="flex flex-wrap gap-2"></div></div>
-            <div><p class="lm-faint text-xs text-slate-500 mb-3 font-mono">Language &amp; Data</p><div id="skillsLang" class="flex flex-wrap gap-2"></div></div>
-            <div><p class="lm-faint text-xs text-slate-500 mb-3 font-mono">Data Visualization &amp; Deployment</p><div id="skillsViz" class="flex flex-wrap gap-2"></div></div>
-            <div><p class="lm-faint text-xs text-slate-500 mb-3 font-mono">Databases</p><div id="skillsDb" class="flex flex-wrap gap-2"></div></div>
-            <div><p class="lm-faint text-xs text-slate-500 mb-3 font-mono">Certificates</p><div id="certsList" class="space-y-2.5"></div></div>
-          </div>
-        </div>
+      <div class="relative">
+        <div class="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-sky-500/60 via-teal-500/30 to-transparent"></div>
+        <div id="educationList" class="space-y-4 pl-8"></div>
       </div>
+    </div>
+  </section>
+
+  <!-- ══ SKILLS ══ -->
+  <section id="skills" class="py-24 relative">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="reveal mb-14">
+        <span class="font-mono text-xs text-sky-400 tracking-widest uppercase">Technical Stack</span>
+        <h2 class="lm-h text-4xl md:text-5xl text-slate-100 mt-2">Skills</h2>
+        <div class="w-12 h-0.5 bg-gradient-to-r from-sky-500 to-teal-500 mt-4"></div>
+      </div>
+      <div id="skillsContainer" class="space-y-10"><!-- rendered by JS --></div>
     </div>
   </section>
 
@@ -452,8 +449,8 @@
   <!-- ══ FOOTER ══ -->
   <footer class="border-t border-slate-800/60 py-8">
     <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="lm-footertext text-xs text-slate-600 font-mono">© 2025 <span id="footerName">Marco R. Sunga</span>. marco.rsunga@gmail.com .</p>
-      <p class="lm-footertext text-xs text-slate-700 font-mono">Data Scientist + Data Engineering · Ready to work. </p>
+      <p class="lm-footertext text-xs text-slate-600 font-mono">© 2025 <span id="footerName"> Marco R. Sunga</span>. marco.rsunga@gmail.com.</p>
+      <p class="lm-footertext text-xs text-slate-700 font-mono">Data Scientist & Data Analyst · Ready to work </p>
     </div>
   </footer>
 
@@ -516,11 +513,12 @@
 
       <!-- Tabs -->
       <div style="display:flex;gap:0.375rem;padding:1rem 1.75rem 0;border-bottom:1px solid #1e293b;">
-        <button class="admin-tab active" onclick="switchTab('profile')"    id="tab-profile">Profile</button>
-        <button class="admin-tab"        onclick="switchTab('projects')"   id="tab-projects">Projects</button>
-        <button class="admin-tab"        onclick="switchTab('experience')" id="tab-experience">Experience</button>
-        <button class="admin-tab"        onclick="switchTab('education')"  id="tab-education">Education</button>
-        <button class="admin-tab"        onclick="switchTab('skills')"     id="tab-skills">Skills</button>
+        <button class="admin-tab active" onclick="switchTab('profile')"        id="tab-profile">Profile</button>
+        <button class="admin-tab"        onclick="switchTab('projects')"       id="tab-projects">Projects</button>
+        <button class="admin-tab"        onclick="switchTab('experience')"     id="tab-experience">Experience</button>
+        <button class="admin-tab"        onclick="switchTab('education')"      id="tab-education">Education</button>
+        <button class="admin-tab"        onclick="switchTab('certifications')" id="tab-certifications">Certs</button>
+        <button class="admin-tab"        onclick="switchTab('skills')"         id="tab-skills">Skills</button>
       </div>
 
       <div style="padding:1.5rem 1.75rem 2rem;">
@@ -634,37 +632,52 @@
             <div><label class="admin-label">Institution</label><input class="admin-input" id="e_institution" placeholder="MIT"></div>
             <div><label class="admin-label">Year(s)</label><input class="admin-input" id="e_year" placeholder="2020–2024"></div>
             <div style="grid-column:1/-1"><label class="admin-label">Details / Notes (optional)</label><input class="admin-input" id="e_details" placeholder="GPA, honors, thesis topic..."></div>
-            <div style="display:flex;align-items:center;gap:0.5rem;padding-top:1.25rem;">
-              <input type="checkbox" id="e_isCert" style="accent-color:#38bdf8;width:1rem;height:1rem;">
-              <label style="font-size:0.8rem;color:#94a3b8;cursor:pointer;">This is a Certificate → shows in Skills section</label>
-            </div>
           </div>
           <div style="margin-top:1rem;"><button class="admin-btn-primary" onclick="addEducation()">+ Add Entry</button></div>
           <p class="admin-section-title" style="margin-top:1.75rem;">Current Entries</p>
           <div id="adminEducationList"></div>
         </div>
 
+        <!-- CERTIFICATIONS TAB -->
+        <div id="pane-certifications" style="display:none;">
+          <p class="admin-section-title">Add Certification</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.875rem;">
+            <div style="grid-column:1/-1"><label class="admin-label">Certification Title</label><input class="admin-input" id="ct_title" placeholder="Google Data Analytics Professional Certificate"></div>
+            <div><label class="admin-label">Issuing Organization</label><input class="admin-input" id="ct_issuer" placeholder="Google / Coursera / AWS..."></div>
+            <div><label class="admin-label">Date Obtained</label><input class="admin-input" id="ct_date" placeholder="Jan 2024"></div>
+            <div><label class="admin-label">Expiry Date</label><input class="admin-input" id="ct_expiry" placeholder="No Expiry / Jan 2027"></div>
+            <div><label class="admin-label">Credential ID</label><input class="admin-input" id="ct_credentialId" placeholder="ABC-123-XYZ (optional)"></div>
+            <div><label class="admin-label">Credential URL</label><input class="admin-input" id="ct_link" placeholder="https://coursera.org/verify/..."></div>
+            <div style="grid-column:1/-1"><label class="admin-label">Skills Acquired (comma separated)</label><input class="admin-input" id="ct_skills" placeholder="Python, Machine Learning, Data Analysis, SQL"></div>
+            <div style="grid-column:1/-1"><label class="admin-label">Notes (optional)</label><textarea class="admin-input" id="ct_notes" rows="2" style="resize:vertical;" placeholder="What you learned, why it's relevant..."></textarea></div>
+          </div>
+          <div style="margin-top:1rem;"><button class="admin-btn-primary" onclick="addCertification()">+ Add Certification</button></div>
+          <p class="admin-section-title" style="margin-top:1.75rem;">Current Certifications (<span id="certCount">0</span>)</p>
+          <div id="adminCertList"></div>
+        </div>
+
         <!-- SKILLS TAB -->
         <div id="pane-skills" style="display:none;">
+
+          <!-- Add Category -->
+          <p class="admin-section-title">Manage Categories</p>
+          <div style="display:flex;gap:0.75rem;align-items:flex-end;margin-bottom:1rem;">
+            <div style="flex:1;"><label class="admin-label">New Category Name</label><input class="admin-input" id="sk_newcat" placeholder="e.g. Cloud Platforms" onkeydown="if(event.key==='Enter')addCategory()"></div>
+            <button class="admin-btn-primary" onclick="addCategory()" style="white-space:nowrap;flex-shrink:0;">+ Add Category</button>
+          </div>
+          <div id="adminCategoryList" style="margin-bottom:1.75rem;"></div>
+
+          <!-- Add Skill to Category -->
           <p class="admin-section-title">Add Skill</p>
           <div style="display:grid;grid-template-columns:2fr 1fr auto;gap:0.875rem;align-items:end;">
             <div><label class="admin-label">Skill Name</label><input class="admin-input" id="sk_name" placeholder="e.g. TensorFlow" onkeydown="if(event.key==='Enter')addSkill()"></div>
-            <div><label class="admin-label">Category</label>
-              <select class="admin-input" id="sk_cat">
-                <option value="ml">Machine Learning Models</option>
-                <option value="lang">Language &amp; Data</option>
-                <option value="viz">Data Visualization &amp; Deployment</option>
-                <option value="db">Databases</option>
-              </select>
-            </div>
+            <div><label class="admin-label">Category</label><select class="admin-input" id="sk_cat"></select></div>
             <button class="admin-btn-primary" onclick="addSkill()" style="white-space:nowrap;">+ Add</button>
           </div>
-          <div style="margin-top:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-            <div><p style="font-size:0.68rem;font-family:'DM Mono',monospace;color:#38bdf8;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:.08em;">ML Models</p><div id="adminMl"></div></div>
-            <div><p style="font-size:0.68rem;font-family:'DM Mono',monospace;color:#2dd4bf;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:.08em;">Language &amp; Data</p><div id="adminLang"></div></div>
-            <div><p style="font-size:0.68rem;font-family:'DM Mono',monospace;color:#818cf8;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:.08em;">Viz &amp; Deployment</p><div id="adminViz"></div></div>
-            <div><p style="font-size:0.68rem;font-family:'DM Mono',monospace;color:#fb923c;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:.08em;">Databases</p><div id="adminDb"></div></div>
-          </div>
+
+          <!-- Skills per category -->
+          <div id="adminSkillsGrid" style="margin-top:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;"></div>
+
         </div>
 
       </div>
@@ -727,12 +740,15 @@
     education:[
       {id:1,degree:'Your Degree Here',institution:'Your University',year:'2020–2024',details:'Add your details here',isCert:false},
     ],
-    skills:{
-      ml:   ['TensorFlow','PyTorch','Scikit-learn','Keras','Hugging Face'],
-      lang: ['Python','R','SQL'],
-      viz:  ['Tableau','Matplotlib','Streamlit'],
-      db:   ['PostgreSQL','MySQL','MongoDB'],
-    },
+    certifications:[
+      {id:1,title:'Sample Certification',issuer:'Issuing Organization',date:'Jan 2024',expiry:'No Expiry',credentialId:'ABC-123',link:'#',notes:'Add notes about this certification here.',skills:'Python, Machine Learning, Data Analysis'},
+    ],
+    skills:[
+      {id:'ml',   label:'Machine Learning Models',   items:['TensorFlow','PyTorch','Scikit-learn','Keras','Hugging Face']},
+      {id:'lang', label:'Language & Data',            items:['Python','R','SQL']},
+      {id:'viz',  label:'Data Visualization & Deployment', items:['Tableau','Matplotlib','Streamlit']},
+      {id:'db',   label:'Databases',                  items:['PostgreSQL','MySQL','MongoDB']},
+    ],
     experience:[
       {id:1,title:'Data Analyst',company:'Your Company',location:'Manila, PH',start:'Jan 2023',end:'Present',type:'Full-time',current:true,desc:'Add your key achievements and responsibilities here.\nOne achievement per line.',tech:'Python, SQL, Tableau'},
     ]
@@ -769,14 +785,15 @@
   async function loadFromSupabase() {
     showLoadingOverlay();
     try {
-      const [profile, projects, education, skills, photo, experience] = await Promise.all([
-        dbGet('profile'), dbGet('projects'), dbGet('education'), dbGet('skills'), dbGet('photo'), dbGet('experience')
+      const [profile, projects, education, skills, photo, experience, certifications] = await Promise.all([
+        dbGet('profile'), dbGet('projects'), dbGet('education'), dbGet('skills'), dbGet('photo'), dbGet('experience'), dbGet('certifications')
       ]);
-      if (profile)    DATA.profile    = profile;
-      if (projects)   DATA.projects   = projects;
-      if (education)  DATA.education  = education;
-      if (skills)     DATA.skills     = skills;
-      if (experience) DATA.experience = experience;
+      if (profile)         DATA.profile         = profile;
+      if (projects)        DATA.projects        = projects;
+      if (education)       DATA.education       = education;
+      if (skills)          DATA.skills          = skills;
+      if (experience)      DATA.experience      = experience;
+      if (certifications)  DATA.certifications  = certifications;
       if (photo) {
         const imgEl = document.getElementById('profilePhoto');
         const phEl  = document.getElementById('photoPlaceholder');
@@ -792,7 +809,7 @@
   /* ── SAVE DATA TO SUPABASE ──────────────── */
   async function saveData(keys) {
     // keys = array of what to save e.g. ['profile'] or ['projects'] or all
-    const toSave = keys || ['profile','projects','education','skills','experience'];
+    const toSave = keys || ['profile','projects','education','skills','experience','certifications'];
     showSaveSpinner();
     try {
       await Promise.all(toSave.map(k => dbSet(k, DATA[k])));
@@ -881,48 +898,79 @@
 
   /* ── RENDER: EDUCATION & CERTS ──────────── */
   function renderEducation() {
-    const list  = document.getElementById('educationList');
-    const certs = document.getElementById('certsList');
-    list.innerHTML = ''; certs.innerHTML = '';
+    const list = document.getElementById('educationList');
+    list.innerHTML = '';
     DATA.education.forEach(e => {
-      if (!e.isCert) {
-        const div = document.createElement('div');
-        div.className = 'timeline-dot';
-        div.innerHTML = `
-          <div class="lm-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-600 transition-colors">
-            <div class="flex items-start justify-between gap-3 mb-1">
-              <h4 class="lm-h text-slate-100 font-semibold text-sm leading-snug">${e.degree}</h4>
-              <span class="lm-tag text-xs font-mono text-teal-400 bg-teal-400/10 border border-teal-400/20 px-2 py-0.5 rounded-md flex-shrink-0 whitespace-nowrap">${e.year}</span>
-            </div>
-            <p class="text-sky-400 text-xs font-medium">${e.institution}</p>
-            ${e.details ? `<p class="lm-sub text-slate-500 text-xs mt-2 leading-relaxed">${e.details}</p>` : ''}
-          </div>`;
-        list.appendChild(div);
-      } else {
-        const div = document.createElement('div');
-        div.className = 'lm-certcard flex items-center gap-3 p-3 bg-slate-900 border border-slate-800 rounded-xl hover:border-slate-600 transition-colors';
-        div.innerHTML = `
-          <div class="w-2 h-2 rounded-full bg-gradient-to-r from-sky-400 to-teal-400 flex-shrink-0"></div>
-          <div class="flex-1 min-w-0">
-            <p class="lm-h text-xs font-semibold text-slate-200 truncate">${e.degree}</p>
-            <p class="lm-sub text-xs text-slate-500 mt-0.5">${e.institution}</p>
+      const div = document.createElement('div');
+      div.className = 'timeline-dot';
+      div.innerHTML = `
+        <div class="lm-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-600 transition-colors">
+          <div class="flex items-start justify-between gap-3 mb-1">
+            <h4 class="lm-h text-slate-100 font-semibold text-sm leading-snug">${e.degree}</h4>
+            <span class="lm-tag text-xs font-mono text-teal-400 bg-teal-400/10 border border-teal-400/20 px-2 py-0.5 rounded-md flex-shrink-0 whitespace-nowrap">${e.year}</span>
           </div>
-          <span class="lm-faint text-xs font-mono text-slate-600 flex-shrink-0">${e.year}</span>`;
-        certs.appendChild(div);
-      }
+          <p class="text-sky-400 text-xs font-medium">${e.institution}</p>
+          ${e.details ? `<p class="lm-sub text-slate-500 text-xs mt-2 leading-relaxed">${e.details}</p>` : ''}
+        </div>`;
+      list.appendChild(div);
+    });
+  }
+
+  /* ── RENDER: CERTIFICATIONS ─────────────── */
+  function renderCertifications() {
+    const list = document.getElementById('certsList');
+    if (!list) return;
+    list.innerHTML = '';
+    if (!DATA.certifications || DATA.certifications.length === 0) {
+      list.innerHTML = '<p class="lm-sub text-slate-500 text-xs">No certifications yet.</p>';
+      return;
+    }
+    DATA.certifications.forEach(c => {
+      const skillTags = (c.skills || '').split(',').map(s => s.trim()).filter(Boolean);
+      const div = document.createElement('div');
+      div.className = 'lm-certcard lm-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-600 transition-all group';
+      div.innerHTML = `
+        <div class="flex items-start justify-between gap-3 mb-2">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <h4 class="lm-h text-sm font-semibold text-slate-100 group-hover:text-sky-300 transition-colors">${c.title}</h4>
+              ${c.link && c.link !== '#' ? `<a href="${c.link}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-xs text-sky-400 hover:text-sky-300 transition-colors font-mono" title="View credential"><svg style="width:.75rem;height:.75rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>View</a>` : ''}
+            </div>
+            <p class="text-sky-400 text-xs font-medium mt-0.5">${c.issuer}</p>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <span class="lm-tag text-xs font-mono text-teal-400 bg-teal-400/10 border border-teal-400/20 px-2 py-0.5 rounded-md block whitespace-nowrap">${c.date}</span>
+            ${c.expiry ? `<span class="lm-faint text-xs text-slate-600 mt-1 block">${c.expiry === 'No Expiry' ? 'No Expiry' : 'Exp: ' + c.expiry}</span>` : ''}
+          </div>
+        </div>
+        ${c.credentialId ? `<p class="lm-faint text-xs text-slate-600 font-mono mb-2">ID: ${c.credentialId}</p>` : ''}
+        ${c.notes ? `<p class="lm-sub text-slate-500 text-xs leading-relaxed mb-3">${c.notes}</p>` : ''}
+        ${skillTags.length ? `<div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800">${skillTags.map(s=>`<span class="tag-pill lm-pill text-xs text-slate-400 bg-slate-800 border border-slate-700 rounded-full px-2.5 py-1">${s}</span>`).join('')}</div>` : ''}
+      `;
+      list.appendChild(div);
     });
   }
 
   /* ── RENDER: SKILLS ─────────────────────── */
   function renderSkills() {
-    const map = { ml:'skillsMl', lang:'skillsLang', viz:'skillsViz', db:'skillsDb' };
-    Object.entries(map).forEach(([cat, elId]) => {
-      const el = document.getElementById(elId);
-      if (!el) return;
-      el.innerHTML = (DATA.skills[cat]||[]).map(s=>
-        `<span class="tag-pill lm-pill text-xs font-medium text-slate-300 bg-slate-800 border border-slate-700 rounded-full px-3 py-1.5 cursor-default">${s}</span>`
-      ).join('');
+    const container = document.getElementById('skillsContainer');
+    if (!container) return;
+    container.innerHTML = '';
+    if (!DATA.skills || DATA.skills.length === 0) {
+      container.innerHTML = '<p class="lm-sub text-slate-500 text-sm reveal">No skills yet. Add them via the Admin Panel.</p>';
+      reObserve(); return;
+    }
+    DATA.skills.forEach(cat => {
+      const section = document.createElement('div');
+      section.className = 'reveal';
+      section.innerHTML = `
+        <p class="lm-faint text-xs text-slate-500 mb-3 font-mono tracking-widest uppercase">${cat.label}</p>
+        <div class="flex flex-wrap gap-2">
+          ${(cat.items||[]).map(s=>`<span class="tag-pill lm-pill text-xs font-medium text-slate-300 bg-slate-800 border border-slate-700 rounded-full px-3 py-1.5 cursor-default">${s}</span>`).join('')}
+        </div>`;
+      container.appendChild(section);
     });
+    reObserve();
   }
 
   /* ── RENDER: PROFILE ────────────────────── */
@@ -969,7 +1017,7 @@
     // (handled in loadFromSupabase, not here)
   }
 
-  function renderAll() { renderProfile(); renderProjects(); renderExperience(); renderEducation(); renderSkills(); }
+  function renderAll() { renderProfile(); renderProjects(); renderExperience(); renderEducation(); renderCertifications(); renderSkills(); }
 
   /* ── SCROLL REVEAL ──────────────────────── */
   let revealObs = new IntersectionObserver(entries => {
@@ -1116,14 +1164,15 @@
   function closeAdminIfOutside(e) { if(e.target===document.getElementById('adminOverlay')) closeAdmin(); }
 
   function switchTab(name){
-    ['profile','projects','experience','education','skills'].forEach(t=>{
+    ['profile','projects','experience','education','certifications','skills'].forEach(t=>{
       document.getElementById('pane-'+t).style.display=t===name?'block':'none';
       document.getElementById('tab-'+t).classList.toggle('active',t===name);
     });
-    if(name==='projects')   {renderAdminProjects();}
-    if(name==='experience') {renderAdminExperience();}
-    if(name==='education')  {renderAdminEducation();}
-    if(name==='skills')     {renderAdminSkills();}
+    if(name==='projects')       {renderAdminProjects();}
+    if(name==='experience')     {renderAdminExperience();}
+    if(name==='education')      {renderAdminEducation();}
+    if(name==='certifications') {renderAdminCerts();}
+    if(name==='skills')         {renderAdminSkills();}
   }
 
   /* ── ADMIN FUNCTIONS ────────────────────── */
@@ -1231,11 +1280,9 @@
       institution:document.getElementById('e_institution').value,
       year:       document.getElementById('e_year').value,
       details:    document.getElementById('e_details').value,
-      isCert:     document.getElementById('e_isCert').checked,
     });
     saveData(['education']); renderEducation(); renderAdminEducation();
     ['e_degree','e_institution','e_year','e_details'].forEach(id=>document.getElementById(id).value='');
-    document.getElementById('e_isCert').checked=false;
   }
   function deleteEducation(id){DATA.education=DATA.education.filter(e=>e.id!==id);saveData(['education']);renderEducation();renderAdminEducation();}
   function renderAdminEducation(){
@@ -1243,9 +1290,47 @@
       <div class="admin-item">
         <div>
           <p style="color:#e2e8f0;font-size:0.82rem;font-weight:600;">${e.degree}</p>
-          <p style="color:#64748b;font-size:0.72rem;font-family:'DM Mono',monospace;">${e.institution} · ${e.year}${e.isCert?' · <span style="color:#38bdf8">cert</span>':''}</p>
+          <p style="color:#64748b;font-size:0.72rem;font-family:'DM Mono',monospace;">${e.institution} · ${e.year}</p>
         </div>
         <button class="admin-btn-danger" onclick="deleteEducation(${e.id})">Delete</button>
+      </div>`).join('');
+  }
+
+  /* Certifications admin */
+  function addCertification(){
+    const title=document.getElementById('ct_title').value.trim(); if(!title)return;
+    if(!DATA.certifications) DATA.certifications=[];
+    DATA.certifications.push({
+      id:           Date.now(),
+      title,
+      issuer:       document.getElementById('ct_issuer').value,
+      date:         document.getElementById('ct_date').value,
+      expiry:       document.getElementById('ct_expiry').value || 'No Expiry',
+      credentialId: document.getElementById('ct_credentialId').value,
+      link:         document.getElementById('ct_link').value || '#',
+      skills:       document.getElementById('ct_skills').value,
+      notes:        document.getElementById('ct_notes').value,
+    });
+    saveData(['certifications']); renderCertifications(); renderAdminCerts();
+    ['ct_title','ct_issuer','ct_date','ct_expiry','ct_credentialId','ct_link','ct_skills','ct_notes'].forEach(id=>document.getElementById(id).value='');
+  }
+  function deleteCertification(id){
+    DATA.certifications=DATA.certifications.filter(c=>c.id!==id);
+    saveData(['certifications']); renderCertifications(); renderAdminCerts();
+  }
+  function renderAdminCerts(){
+    if(!DATA.certifications) DATA.certifications=[];
+    const el=document.getElementById('adminCertList');
+    const cnt=document.getElementById('certCount');
+    if(cnt) cnt.textContent=DATA.certifications.length;
+    el.innerHTML=DATA.certifications.map(c=>`
+      <div class="admin-item">
+        <div style="flex:1;min-width:0;">
+          <p style="color:#e2e8f0;font-size:0.82rem;font-weight:600;">${c.title}</p>
+          <p style="color:#64748b;font-size:0.72rem;font-family:'DM Mono',monospace;">${c.issuer} · ${c.date}${c.expiry?' · '+c.expiry:''}</p>
+          ${c.skills?`<p style="color:#38bdf8;font-size:0.7rem;margin-top:2px;">${c.skills}</p>`:''}
+        </div>
+        <button class="admin-btn-danger" onclick="deleteCertification(${c.id})">Delete</button>
       </div>`).join('');
   }
 
@@ -1291,29 +1376,81 @@
       </div>`).join('');
   }
 
-  /* Skills admin */
+  /* Skills admin — fully dynamic categories */
+  const CAT_COLORS = ['#38bdf8','#2dd4bf','#818cf8','#fb923c','#f472b6','#a3e635','#facc15','#f87171'];
+
+  function getCatColor(idx){ return CAT_COLORS[idx % CAT_COLORS.length]; }
+
+  function addCategory(){
+    const label = document.getElementById('sk_newcat').value.trim();
+    if(!label) return;
+    if(!Array.isArray(DATA.skills)) DATA.skills=[];
+    // Generate unique id from label
+    const id = label.toLowerCase().replace(/[^a-z0-9]/g,'_').replace(/__+/g,'_') + '_' + Date.now();
+    DATA.skills.push({ id, label, items:[] });
+    saveData(['skills']); renderSkills(); renderAdminSkills();
+    document.getElementById('sk_newcat').value='';
+  }
+
+  function deleteCategory(id){
+    DATA.skills = DATA.skills.filter(c=>c.id!==id);
+    saveData(['skills']); renderSkills(); renderAdminSkills();
+  }
+
   function addSkill(){
-    const name=document.getElementById('sk_name').value.trim(), cat=document.getElementById('sk_cat').value;
-    if(!name)return;
-    if(!DATA.skills[cat]) DATA.skills[cat]=[];
-    if(!DATA.skills[cat].includes(name)) DATA.skills[cat].push(name);
+    const name = document.getElementById('sk_name').value.trim();
+    const catId = document.getElementById('sk_cat').value;
+    if(!name || !catId) return;
+    const cat = DATA.skills.find(c=>c.id===catId);
+    if(!cat) return;
+    if(!cat.items.includes(name)) cat.items.push(name);
     saveData(['skills']); renderSkills(); renderAdminSkills();
     document.getElementById('sk_name').value='';
   }
-  function deleteSkill(cat,name){
-    DATA.skills[cat]=DATA.skills[cat].filter(s=>s!==name);
+
+  function deleteSkill(catId, name){
+    const cat = DATA.skills.find(c=>c.id===catId);
+    if(cat) cat.items = cat.items.filter(s=>s!==name);
     saveData(['skills']); renderSkills(); renderAdminSkills();
   }
+
   function renderAdminSkills(){
-    ['ml','lang','viz','db'].forEach(cat=>{
-      const el = document.getElementById('admin'+cat.charAt(0).toUpperCase()+cat.slice(1));
-      if(!el) return;
-      el.innerHTML=(DATA.skills[cat]||[]).map(s=>`
-        <div style="display:flex;align-items:center;justify-content:space-between;background:#1e293b;border:1px solid #334155;border-radius:0.5rem;padding:0.3rem 0.625rem;margin-bottom:0.3rem;">
-          <span style="color:#cbd5e1;font-size:0.75rem;">${s}</span>
-          <button onclick="deleteSkill('${cat}','${s.replace(/'/g,"\\'")}')" style="color:#f87171;background:none;border:none;cursor:pointer;font-size:1rem;line-height:1;padding:0 0.125rem;">×</button>
-        </div>`).join('');
-    });
+    if(!Array.isArray(DATA.skills)) DATA.skills=[];
+
+    // Update category dropdown
+    const sel = document.getElementById('sk_cat');
+    sel.innerHTML = DATA.skills.length
+      ? DATA.skills.map(c=>`<option value="${c.id}">${c.label}</option>`).join('')
+      : '<option value="">— Add a category first —</option>';
+
+    // Render category management list
+    const catList = document.getElementById('adminCategoryList');
+    catList.innerHTML = DATA.skills.length
+      ? DATA.skills.map((c,i)=>`
+          <div class="admin-item" style="padding:0.625rem 0.875rem;">
+            <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0;">
+              <span style="width:8px;height:8px;border-radius:50%;background:${getCatColor(i)};flex-shrink:0;display:inline-block;"></span>
+              <span style="color:#e2e8f0;font-size:0.82rem;font-weight:600;">${c.label}</span>
+              <span style="color:#475569;font-size:0.7rem;font-family:'DM Mono',monospace;">(${c.items.length} skill${c.items.length!==1?'s':''})</span>
+            </div>
+            <button class="admin-btn-danger" onclick="deleteCategory('${c.id}')">Delete</button>
+          </div>`).join('')
+      : '<p style="color:#475569;font-size:0.78rem;font-family:\'DM Mono\',monospace;">No categories yet. Add one above.</p>';
+
+    // Render skills grid per category
+    const grid = document.getElementById('adminSkillsGrid');
+    grid.innerHTML = DATA.skills.map((c,i)=>`
+      <div>
+        <p style="font-size:0.68rem;font-family:'DM Mono',monospace;color:${getCatColor(i)};margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:.08em;">${c.label}</p>
+        <div id="adminCat_${c.id}">
+          ${(c.items||[]).map(s=>`
+            <div style="display:flex;align-items:center;justify-content:space-between;background:#1e293b;border:1px solid #334155;border-radius:0.5rem;padding:0.3rem 0.625rem;margin-bottom:0.3rem;">
+              <span style="color:#cbd5e1;font-size:0.75rem;">${s}</span>
+              <button onclick="deleteSkill('${c.id}','${s.replace(/'/g,"\\'")}')" style="color:#f87171;background:none;border:none;cursor:pointer;font-size:1rem;line-height:1;padding:0 0.125rem;">×</button>
+            </div>`).join('')}
+          ${c.items.length===0?'<p style="color:#334155;font-size:0.72rem;font-style:italic;">No skills yet</p>':''}
+        </div>
+      </div>`).join('');
   }
   /* ── INIT ───────────────────────────────── */
   loadFromSupabase(); // loads from Supabase then calls renderAll()
