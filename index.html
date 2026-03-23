@@ -353,7 +353,7 @@
           <!-- Name card below photo -->
           <div class="photo-namecard lm-floatcard bg-slate-900 border border-slate-700/60 rounded-2xl px-4 py-3.5 text-center shadow-xl shadow-black/30" style="width:185px;">
             <p id="photoName" class="lm-h text-sm font-semibold text-slate-100 truncate">Marco R. Sunga</p>
-            <p id="photoRole" class="lm-sub text-xs text-slate-500 mt-0.5 leading-snug">Data Scientist</p>
+            <p id="photoRole" class="lm-sub text-xs text-slate-500 mt-0.5 leading-snug">Student</p>
             <div class="flex justify-center gap-3 mt-3">
               <a id="photoEmailLink" href="/cdn-cgi/l/email-protection#76171a130e36130e171b061a135815191b" class="text-slate-500 hover:text-sky-400 transition-colors" title="Email">
                 <svg style="width:1rem;height:1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -440,7 +440,7 @@
       <div class="reveal text-center max-w-2xl mx-auto">
         <span class="font-mono text-xs text-sky-400 tracking-widest uppercase">Let's build together</span>
         <h2 class="lm-h text-4xl md:text-5xl text-slate-100 mt-3 mb-5">Get in Touch</h2>
-        <p class="lm-body text-slate-400 leading-relaxed mb-10">Have a project in mind? I'm available for internships, full-time positions, and freelance work.</p>
+        <p class="lm-body text-slate-400 leading-relaxed mb-10">Have a project in mind? I'm available for interships, freelance work, and full-time works.</p>
         <div class="flex flex-wrap gap-4 justify-center">
           <a id="contactEmail" href="/cdn-cgi/l/email-protection#10717c7568507568717d607c753e737f7d" class="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-teal-500 text-white font-semibold text-sm hover:from-sky-400 hover:to-teal-400 transition-all shadow-xl shadow-sky-500/20 hover:-translate-y-0.5">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -463,7 +463,7 @@
   <footer class="border-t border-slate-800/60 py-8">
     <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="lm-footertext text-xs text-slate-600 font-mono">© 2025 <span id="footerName">Marco R. Sunga</span>. marco.rsunga@gmail.com.</p>
-      <p class="lm-footertext text-xs text-slate-700 font-mono">Data Scientist and Data Analyst· Ready to work! </p>
+      <p class="lm-footertext text-xs text-slate-700 font-mono">Data Scientist & Data Analyst· Ready to work! </p>
     </div>
   </footer>
 
@@ -1344,12 +1344,39 @@
     document.getElementById('projectCount').textContent=DATA.projects.length;
     el.innerHTML=DATA.projects.map(p=>`
       <div class="admin-item">
-        <div>
+        <div style="flex:1;min-width:0;">
           <p style="color:#e2e8f0;font-size:0.82rem;font-weight:600;">${p.title}</p>
           <p style="color:#64748b;font-size:0.72rem;font-family:'DM Mono',monospace;">${p.stack} · ${p.badge}</p>
         </div>
-        <button class="admin-btn-danger" onclick="deleteProject(${p.id})">Delete</button>
+        <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+          <button class="admin-btn-primary" style="padding:0.3rem 0.75rem;font-size:0.72rem;" onclick="editProject(${p.id})">Edit</button>
+          <button class="admin-btn-danger" onclick="deleteProject(${p.id})">Delete</button>
+        </div>
       </div>`).join('');
+  }
+
+  function editProject(id){
+    const p = DATA.projects.find(x=>x.id===id); if(!p) return;
+    document.getElementById('p_title').value   = p.title   || '';
+    document.getElementById('p_stack').value   = p.stack   || '';
+    document.getElementById('p_badge').value   = p.badge   || '';
+    document.getElementById('p_desc').value    = p.desc    || '';
+    document.getElementById('p_demo').value    = p.demo    || '';
+    document.getElementById('p_github').value  = p.github  || '';
+    document.getElementById('p_color').value   = p.color   || 'sky';
+    document.getElementById('p_featured').checked = !!p.featured;
+    // Load existing image into pending
+    _pendingProjectImg = p.image || null;
+    if (_pendingProjectImg) {
+      document.getElementById('p_mediaPreviewImg').src = _pendingProjectImg;
+      document.getElementById('p_mediaPreviewImg').style.display = 'block';
+      document.getElementById('p_mediaPreview').style.display = 'block';
+    }
+    // Remove original so save replaces it
+    DATA.projects = DATA.projects.filter(x=>x.id!==id);
+    document.getElementById('p_title').scrollIntoView({behavior:'smooth',block:'center'});
+    document.getElementById('p_title').focus();
+    showToast('✏️ Editing — update fields and click + Add Project');
   }
 
   /* Education admin */
@@ -1368,12 +1395,27 @@
   function renderAdminEducation(){
     document.getElementById('adminEducationList').innerHTML=DATA.education.map(e=>`
       <div class="admin-item">
-        <div>
+        <div style="flex:1;min-width:0;">
           <p style="color:#e2e8f0;font-size:0.82rem;font-weight:600;">${e.degree}</p>
           <p style="color:#64748b;font-size:0.72rem;font-family:'DM Mono',monospace;">${e.institution} · ${e.year}</p>
         </div>
-        <button class="admin-btn-danger" onclick="deleteEducation(${e.id})">Delete</button>
+        <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+          <button class="admin-btn-primary" style="padding:0.3rem 0.75rem;font-size:0.72rem;" onclick="editEducation(${e.id})">Edit</button>
+          <button class="admin-btn-danger" onclick="deleteEducation(${e.id})">Delete</button>
+        </div>
       </div>`).join('');
+  }
+
+  function editEducation(id){
+    const e = DATA.education.find(x=>x.id===id); if(!e) return;
+    document.getElementById('e_degree').value      = e.degree      || '';
+    document.getElementById('e_institution').value = e.institution || '';
+    document.getElementById('e_year').value        = e.year        || '';
+    document.getElementById('e_details').value     = e.details     || '';
+    DATA.education = DATA.education.filter(x=>x.id!==id);
+    document.getElementById('e_degree').scrollIntoView({behavior:'smooth',block:'center'});
+    document.getElementById('e_degree').focus();
+    showToast('✏️ Editing — update fields and click + Add Entry');
   }
 
   /* Certifications admin */
@@ -1432,8 +1474,32 @@
           <p style="color:#64748b;font-size:0.72rem;font-family:'DM Mono',monospace;">${c.issuer} · ${c.date}${c.expiry?' · '+c.expiry:''}</p>
           ${c.skills?`<p style="color:#38bdf8;font-size:0.7rem;margin-top:2px;">${c.skills}</p>`:''}
         </div>
-        <button class="admin-btn-danger" onclick="deleteCertification(${c.id})">Delete</button>
+        <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+          <button class="admin-btn-primary" style="padding:0.3rem 0.75rem;font-size:0.72rem;" onclick="editCertification(${c.id})">Edit</button>
+          <button class="admin-btn-danger" onclick="deleteCertification(${c.id})">Delete</button>
+        </div>
       </div>`).join('');
+  }
+
+  function editCertification(id){
+    const c = DATA.certifications.find(x=>x.id===id); if(!c) return;
+    document.getElementById('ct_title').value        = c.title        || '';
+    document.getElementById('ct_issuer').value       = c.issuer       || '';
+    document.getElementById('ct_date').value         = c.date         || '';
+    document.getElementById('ct_expiry').value       = c.expiry       || '';
+    document.getElementById('ct_credentialId').value = c.credentialId || '';
+    document.getElementById('ct_link').value         = c.link         || '';
+    document.getElementById('ct_skills').value       = c.skills       || '';
+    document.getElementById('ct_notes').value        = c.notes        || '';
+    _pendingCertImg = c.image || null;
+    if (_pendingCertImg) {
+      document.getElementById('ct_mediaPreviewImg').src = _pendingCertImg;
+      document.getElementById('ct_mediaPreview').style.display = 'block';
+    }
+    DATA.certifications = DATA.certifications.filter(x=>x.id!==id);
+    document.getElementById('ct_title').scrollIntoView({behavior:'smooth',block:'center'});
+    document.getElementById('ct_title').focus();
+    showToast('✏️ Editing — update fields and click + Add Certification');
   }
 
   /* Experience admin */
@@ -1474,8 +1540,29 @@
           <p style="color:#e2e8f0;font-size:0.82rem;font-weight:600;">${e.title}</p>
           <p style="color:#64748b;font-size:0.72rem;font-family:'DM Mono',monospace;">${e.company} · ${e.start}–${e.end||'Present'} · ${e.type}</p>
         </div>
-        <button class="admin-btn-danger" onclick="deleteExperience(${e.id})">Delete</button>
+        <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+          <button class="admin-btn-primary" style="padding:0.3rem 0.75rem;font-size:0.72rem;" onclick="editExperience(${e.id})">Edit</button>
+          <button class="admin-btn-danger" onclick="deleteExperience(${e.id})">Delete</button>
+        </div>
       </div>`).join('');
+  }
+
+  function editExperience(id){
+    const e = DATA.experience.find(x=>x.id===id); if(!e) return;
+    document.getElementById('ex_title').value    = e.title    || '';
+    document.getElementById('ex_company').value  = e.company  || '';
+    document.getElementById('ex_location').value = e.location || '';
+    document.getElementById('ex_start').value    = e.start    || '';
+    document.getElementById('ex_end').value      = e.end      || '';
+    document.getElementById('ex_type').value     = e.type     || 'Full-time';
+    document.getElementById('ex_desc').value     = e.desc     || '';
+    document.getElementById('ex_tech').value     = e.tech     || '';
+    document.getElementById('ex_current').checked = !!e.current;
+    document.getElementById('ex_end').disabled = !!e.current;
+    DATA.experience = DATA.experience.filter(x=>x.id!==id);
+    document.getElementById('ex_title').scrollIntoView({behavior:'smooth',block:'center'});
+    document.getElementById('ex_title').focus();
+    showToast('✏️ Editing — update fields and click + Add Experience');
   }
 
   /* Skills admin — fully dynamic categories */
@@ -1559,4 +1646,4 @@
 
   </script>
 </body>
-</html>   
+</html>
